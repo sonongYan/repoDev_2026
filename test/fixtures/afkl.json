@@ -1,0 +1,11 @@
+{
+  "carrier": "afkl",
+  "queryType": "awb",
+  "samples": [
+    {
+      "number": "074-39882393",
+      "expect": "notfound",
+      "note": "用于验证「导航→填单→提交→接口响应」链路；该单当前返回 HTTP 412（业务无数据）。若要验证完整解析，请换一个在途运单"
+    }
+  ]
+}

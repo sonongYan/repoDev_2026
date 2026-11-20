@@ -1,0 +1,25 @@
+{
+  "info": {
+    "modalHtml": "<div class=\"modal fade in\" id=\"mod-imageVerify\" style=\"display: block;\"><div class=\"modal-backdrop fade in\"></div><div class=\"modal-dialog\" style=\"width:320px;\"><div class=\"modal-content\"><div class=\"modal-header\"><h2 class=\"text-center\">图形验证码</h2><a class=\"icon close\" role=\"button\" data-dismiss=\"modal\">关闭</a></div><div class=\"modal-body\" style=\"height: 166px;\"><div class=\"form-item\" style=\"position:relative;\"><div class=\"yzm\"><div id=\"yzm_image_cut_big\" class=\"yzm_image_cut_big\" style=\"background-image: url(&quot;../cargotracking/tempImg/20261111_big_7febba115be2df4a.png&quot;);\"></div><div id=\"yzm_image_cut_loading\" class=\"yzm_image_cut_loading\" style=\"display: none;\"></div><div id=\"yzm_image_cut_small\" class=\"yzm_image_cut_small\"></div><div style=\"top: 10px; left: 0px; background-image: url(&quot;../cargotracking/tempImg/20261111_small_2b3d12c17f3d05a7.png&quot;);\" id=\"xy_img\"></div></div><div id=\"drag\" style=\"width: 260px;\"><div class=\"drag_bg\" style=\"background-color: rgb(122, 194, 60);\"></div><div class=\"drag_text\" onselectstart=\"return false;\" unselectable=\"on\">拖动图片到正确位置</div><div class=\"handler handler_bg\"></div></div><img id=\"refreshyzm\" src=\"../images/imageCheck/refresh.png\" style=\"position: absolute;top:5px;right: 5px;width: 20px;height: 20px;cursor: pointer;\"><div class=\"errorMsg\" style=\"font-size:14px; color:#de5d5d; display:none;\">获取图形验证码失败！</div></div><div id=\"fieldMsg\" style=\"font-size:15px;color:#de5d5d;display:none;margin-top:30px;\">获取图形验证码失败！</div></div></div></div></div>",
+    "bigStyle": {
+      "bg": "url(\"https://cargo.csair.com/cargotracking/tempImg/20261111_big_7febba115be2df4a.png\")",
+      "w": 260,
+      "h": 116
+    },
+    "smallStyle": {
+      "bg": "url(\"https://cargo.csair.com/cargotracking/tempImg/20261111_small_2b3d12c17f3d05a7.png\")",
+      "w": 55,
+      "h": 45,
+      "top": "10px"
+    },
+    "handleRect": null,
+    "bodyTail": "南航网站使用cookie和类似的技术来确保网站运行正常，改善您的用户体验。网站上第三方和其他cookie为您展示个性化的广告，这些第三方有可能监控您的网络行为。如果继续使用网站，表示您赞成这些cookie的设置。如果想了解详情或者调整cookie设置，请点击我们的 cookie政策。\n\n同意\n欢迎来到南航物流！  登录 注册 English\n下载app 客户服务热线：4006680066；020-28288888  在线客服\n首页\n服务大厅\n产品资讯\n交易平台\n业务指南\n关于我们\n货物跟踪\n订单号\n运单号\n订舱日期\n至\n航班日期\n至\n航班号\n查 询\n清空\n关于我们\n公司简介\n新闻动态\n企业荣誉\n客户服务\n联系我们\n收运指南\n在线客服\n更多\n机型板型\n隐私政策\n第三方信息共享清单\n个人信息收集清单\n货物运输总条件\nCopyright(C)1997-2021 中国南方航空股份有限公司 版权所有 粤ICP备05053330号\n 中文\n图形验证码\n关闭\n拖动图片到正确位置"
+  },
+  "log": [
+    {
+      "url": "https://cargo.csair.com/cargotracking/getCaptcha.do",
+      "status": 200,
+      "body": "{\"success\":true,\"exceptionMessage\":null,\"exceptionStack\":null,\"returnObject\":{\"smallImgName\":\"20261111_small_2b3d12c17f3d05a7.png\",\"bigImgName\":\"20261111_big_7febba115be2df4a.png\",\"sourceImgName\":\"7.png\",\"location_y\":\"10\"}}"
+    }
+  ]
+}

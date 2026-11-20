@@ -1,0 +1,38 @@
+{
+  "title": "南航物流-货物跟踪",
+  "url": "https://cargo.csair.com/mcargo/cargo-track-n",
+  "bodyText": "货物跟踪\n运单号\t\n查询",
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": null,
+      "placeholder": "请输入运单号,如78412345678",
+      "cls": "item__ipt",
+      "text": "784-"
+    }
+  ],
+  "buttons": [
+    {
+      "tag": "SPAN",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn",
+      "text": "国际"
+    },
+    {
+      "tag": "SPAN",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn",
+      "text": "国内"
+    }
+  ],
+  "iframes": [],
+  "xhrs": []
+}

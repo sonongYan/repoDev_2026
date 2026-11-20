@@ -1,0 +1,764 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="南航物流官网，中国南方航空公司货运官网，南航货运物流官网" />
+    <meta name="description" content="南航物流官网，中国南方航空公司货运官网" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" type="image/x-icon" href="../images/tab-icon.ico" media="screen" />
+    <link rel="stylesheet" href="../css/common.css?t=202107151422">
+    <link rel="stylesheet" href="../css/common-new.css?t=202101261716">
+    <!-- 提示工具Tooltip CSS -->
+    <link rel="stylesheet" href="../css/tooltip.css" />
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="../css/citycode.css" />
+    <link rel="stylesheet" href="../css/city.css" />
+    <link rel="stylesheet" href="../css/frequentcontacts.css" />
+    <link rel="stylesheet" href="../css/jquery.mloading.css" />
+    <link rel="stylesheet" href="../css/dialog.css" />
+    <link rel="stylesheet" href="../css/laypage.css" />
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="../css/pagination.css" />
+    <link rel="stylesheet" href="../css/selectPicker.css" />
+    <link rel="stylesheet" href="../css/imageCheck.css" />
+    <link rel="stylesheet" href="../css/myMultipleSelect.css" />
+    <title>
+        南航物流官网
+         - 货物跟踪
+    </title>
+    
+	
+	<style>
+		::-webkit-input-placeholder { /* WebKit browsers */
+			color: #999;
+			font-style: italic;
+		}
+
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+			color: #999;
+			font-style: italic;
+		}
+
+		:-ms-input-placeholder { /* Internet Explorer 10+ */
+			color: #999;
+			font-style: italic;
+		} 
+		.mod-imageVerify{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+		}
+		.mod-imageVerify .imageVerify-bg{
+			width: 100%;
+			height: 100%;
+			background:#000;
+			opacity: .5;
+		}	
+		.mod-imageVerify .imageVerify-con{
+			width: 400px;
+			height: 300px;
+			background-color: #fff;
+			box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+			margin-left: -200px;
+			position: fixed;
+			top:50%;
+			left:50%;
+			margin-top: -150px;
+		}
+		.mod-imageVerify .imageVerify-title{
+			padding: 0 80px 0 20px;
+			height: 42px;
+			line-height: 42px;
+			border-bottom: 1px solid #eee;
+			font-size: 14px;
+			color: #333;
+			overflow: hidden;
+			background-color: #F8F8F8;
+			border-radius: 2px 2px 0 0;
+			position: relative;
+		}
+		.mod-imageVerify .imageVerify-title .close{
+			width: 16px;
+			height: 16px;
+			font-size: 12px;
+			text-align: center;
+			margin-top: 13px;
+			display: block;
+			font-size: 14px;
+			position: absolute;
+			right: 10px;
+			top: 0;
+		}
+		.mod-imageVerify .imageVerify-box{
+			width:260px;
+			height: 112px;
+			margin:20px auto 30px;
+			background-color: #f2f2f2;
+		}
+		.mod-imageVerify .imageVerify-box .cut-image{
+			width: 60px;
+			height: 60px;
+			background-color: #000;
+		}
+		.mod-imageVerify .drag-bar{
+			width: 260px;
+			height: 34px;
+			line-height: 34px;
+			position: relative;
+			background-color: #ccc;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.mod-imageVerify .drag-bar{
+			color: #000;
+		}
+		.mod-imageVerify .drag-handle{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 40px;
+			height: 32px;
+			border: 1px solid #ccc;
+			cursor: move;
+			background: #999 url("../../../resources/images/icon_arrow.png") no-repeat center center;
+		}
+	</style>
+
+    <style>
+        /*当是英文版时隐藏元素*/
+        html[lang="en"] .langHidden {
+            display: none !important;
+        }
+
+        html[lang="en"] .nav-box .nav-list li .second-nav-list a {
+            width: 150px;
+        }
+
+        html[lang="en"] .footer-nav-list {
+            width: 150px;
+        }
+
+        .bg-tel-en {
+            width: 269px;
+            height: 60px;
+            background: url('../images/tel-en.png') 0 0;
+            display: inline-block;
+        }
+
+        html[hiddenSwitchButton="hidden"] .switchButtonHidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="head hidden" id="headCn">
+        <!-- 暂时屏蔽 -->
+        <div class="cookie-policy">
+            <p>
+                <span data-lang-key="cookiePolicy" style="color: #ffffff;">南航网站使用cookie和类似的技术来确保网站运行正常，改善您的用户体验。网站上第三方和其他cookie为您展示个性化的广告，这些第三方有可能监控您的网络行为。如果继续使用网站，表示您赞成这些cookie的设置。如果想了解详情或者调整cookie设置，请点击我们的</span>
+                <a style="color: #000;" target="_blank" href="../pages/cookiePlicy.do" data-lang-key="cookiePolicyButton">cookie政策。</a>
+            </p>
+            <div id="agree-cookie-policy" data-lang-key="agree">同意</div>
+        </div>
+        <div class="header">
+            <div class="logo-login">
+                <div class="page-container">
+                    <div class="logo">
+                        <a href="#">
+                            <div class="bg-csair_logo"></div>
+                        </a>
+                    </div>
+                    <div class="login split-line--left offLineBox">
+                        <span data-lang-key="welcome">欢迎来到南航物流！</span>
+                        <span>
+                                <a>
+                                    <div class="bg-icon_login_user"></div>
+                                    <span class="login-user" data-lang-key="login">登录</span>
+                                </a>
+                            </span>
+                        <span class="register langHidden">
+                                <a href="../pages/signupPersonal.do">注册</a>
+                            </span>
+                        <span class="register">
+                                <a href="#" class="langSwitchBtn" data-lang-key="language">English</a>
+                            </span>
+                    </div>
+                    <div class="login split-line--left onLineBox" style="display:none">
+                        <span>欢迎您，</span>
+                        <a class="omit-name" id="userName" style="margin:0px 5px;"
+                           href="../pages/personalInfo.do"></a>
+                        <a href="#" class="loginOutBtn">退出</a>
+                        <a href="#" class="langSwitchBtn switchButtonHidden" data-lang-key="language">English</a>
+                    </div>
+                    <div class="header-commonInfo">
+                            <span class="showDownLoadAppBox langHidden">
+                                <a href="../pages/logisticsE.do">
+                                    下载app
+                                </a>
+                            </span>
+                        <span class="split-line--left langHidden" style="padding-left: 10px;"></span>
+                        <span class="consult">
+                                <a href="../pages/customerServiceHotline.do"
+                                   data-lang-key="customerServiceHotline">客户服务热线</a>：4006680066；020-28288888
+                            </span>
+                        <span class="split-line--left langHidden">
+                                <i class="service-online"></i>
+                                <a href="../pages/questionAndAnswer.do" target="_blank">在线客服</a>
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-box">
+                <div class="page-container">
+                    <ul class="nav-list">
+                        <li>
+                            <a href="../pages/home" role="button">
+                                <span data-lang-key="home">首页</span>
+                            </a>
+                        </li>
+                        <li id="serviceCenter" class="langHidden">
+                            <a role="button">
+                                <span>服务大厅</span>
+                            </a>
+                            <div class="second-nav-list">
+                                <dl>
+                                    <dt>自助查询</dt>
+                                    <dd>
+                                        <a class="agentAwbBrower"
+                                           href="http://cargo.csair.com/WebFace/Tang.WebFace.Cargo/AgentAwbBrower.aspx?menuID=1">物流跟踪</a>
+                                        <a class="activeFlightQueryCn"
+                                           href="http://cargo.csair.com/WebFace/Tang.WebFace.ActiveFlight/ActiveFlightQueryCN.aspx?menuID=1">舱位查询</a>
+                                        <a class="freightRateCn"
+                                           href="http://cargo.csair.com/WebFace/Tang.WebFace.RatePolicy/FreightRateCN.aspx">运价查询</a>
+                                        <a class="airlineNetworkBelly"
+                                           href="../pages/airlineNetworkBelly.do">航线网络</a>
+                                        <a href="../pages/questionAndAnswer.do" target="_blank">在线客服</a>
+                                        <a href="../pages/invoicesManage.do" target="_blank">申请发票</a>
+                                        <a href="../pages/truckNetwork.do" target="_blank">卡车网络</a>
+                                        <a href="../pages/flightDynamic.do?id=0" target="_blank">航班动态</a>
+                                    </dd>
+                                    <dd>
+                                        <a href="../pages/dangerAccountManagement.do" target="_blank">危险品账号</a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>服务办理</dt>
+                                    <dd>
+                                        <a class="publishIndex" href="/Public/publish_index.aspx?menuID=4">应用下载</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="langHidden">
+                            <a role="button">
+                                <span>产品资讯</span>
+                            </a>
+                            <div class="second-nav-list">
+                                <dl>
+                                    <dd>
+                                        <a href="../pages/productSeries.do">产品体系</a>
+                                        <a href="../pages/CZSpeed.do">南航快运</a>
+                                        <a href="../pages/CZSpecial.do">南航特运</a>
+                                        <a href="../pages/CZExclusive.do">南航专运</a>
+                                        <a href="../pages/CZStandard.do">南航标运</a>
+                                        <a href="../pages/CZTransfer.do">南航联运</a>
+                                        <a href="../pages/CZDoorToDoor.do">南航飞递</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" role="button" id="tradding_btn">
+                                <span data-lang-key="tradingPlatform">交易平台</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a role="button">
+                                <span data-lang-key="businessGuide">业务指南</span>
+                            </a>
+                            <div class="second-nav-list">
+                                <dl>
+                                    <dd>
+                                        <a href="../pages/cargoFlightTime.do"
+                                           data-lang-key="cargoFlightSchedule">货机航班时刻</a>
+                                        <a href="../pages/cargoTypeDetail.do?id=0" class="langHidden">货物类型</a>
+                                        <a class="transportation langHidden"
+                                           href="../pages/transportation.do">交运流程</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li id="cargoServices" class="langHidden">
+                            <a role="button">
+                                <span>物流服务</span>
+                            </a>
+                            <div id="cargoServicesList" class="second-nav-list">
+                            </div>
+                        </li>
+                        <li>
+                            <a role="button">
+                                <span data-lang-key="regardingUs">关于我们</span>
+                            </a>
+                            <div class="second-nav-list">
+                                <dl class="langHidden">
+                                    <dt>信息资讯</dt>
+                                    <dd>
+                                        <a class="cargoIntroduction" href="../pages/CargoIntroduction.do">公司简介</a>
+                                        <a class="newsMore" href="/Tang.WebFace.News/NewsMore.aspx">新闻动态</a>
+                                        <a class="corporate" href="../pages/Corporate.do">企业荣誉</a>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt data-lang-key="contactMethod">联系方式</dt>
+                                    <dd>
+                                        <a class="contact" href="../pages/contactInfo.do"
+                                           data-lang-key="contactMethod">联系方式</a>
+                                        <a class="contact langHidden" href="../pages/tonControl.do">站点吨控联系方式</a>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="order-management" id="order-management" style="display:none">
+                        <a href="../pages/orderManage.do">个人中心</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head hidden" id="headEn">
+        <!-- 暂时屏蔽 -->
+        <div class="cookie-policy-en">
+            <p>
+                <span data-lang-key="cookiePolicy" style="color: #ffffff;">China Southern Airlines’ website uses cookie and similar technologies to guarantee the normal operation of the website and to enhance your user experience. The third parties and other cookies will display personalized advertisements for you on the website, and these third parties might monitor your network behaviors. If you continue using the website, it means that you are in favor of the setting of the cookies. If you want to know more details or adjust the cookie setting, please click our</span>
+                <a style="color: #000;" target="_blank" href="../pages/cookiePlicy.do" data-lang-key="cookiePolicyButton">Cookie Statement.</a>
+            </p>
+            <div id="agree-cookie-policy-en" data-lang-key="agree">Agree</div>
+        </div>
+        <div class="header">
+            <div class="logo-login">
+                <div class="page-container">
+                    <div class="logo">
+                        <a href="#">
+                            <div class="bg-csair_logo"></div>
+                        </a>
+                    </div>
+                    <div class="login split-line--left offLineBox">
+                        <span data-lang-key="welcome">Welcome to China Southern Air Logistics！</span>
+                        <span>
+                                <a>
+                                    <div class="bg-icon_login_user"></div>
+                                    <span class="login-user" data-lang-key="login">Log in</span>
+                                </a>
+                            </span>
+                        <span class="register">
+                                <a href="#" class="langSwitchBtn" data-lang-key="language">简体中文</a>
+                            </span>
+                    </div>
+                    <div class="login split-line--left onLineBox" style="display:none">
+                        <span>欢迎您，</span>
+                        <a class="omit-name" id="userNameEn" style="margin:0px 5px;"
+                           href="../pages/personalInfo.do"></a>
+                        <a href="#" class="loginOutBtn">退出</a>
+                        <a href="#" class="langSwitchBtn switchButtonHidden" data-lang-key="language">English</a>
+                    </div>
+                    <div class="header-commonInfo">
+                            <span class="consult">
+                                <a href="../pages/customerServiceHotline.do"
+                                   data-lang-key="customerServiceHotline">Customer service
+                                    hotline</a>：4006680066；020-28288888
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-box">
+                <div class="page-container">
+                    <ul class="nav-list">
+                        <li>
+                            <a href="../pages/home" role="button">
+                                <span data-lang-key="home">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" role="button" id="tradding_btn">
+                                <span data-lang-key="tradingPlatform">Trading Platform</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a role="button">
+                                <span data-lang-key="businessGuide">Business Guide</span>
+                            </a>
+                            <div class="second-nav-list">
+                                <dl>
+                                    <dd>
+                                        <a href="../pages/cargoFlightTime.do"
+                                           data-lang-key="cargoFlightSchedule">Cargo flight schedule</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li>
+                            <a role="button">
+                                <span data-lang-key="regardingUs">About us</span>
+                            </a>
+                            <div class="second-nav-list">
+                                <dl>
+                                    <dt data-lang-key="contactMethod">Contact us</dt>
+                                    <dd>
+                                        <a class="contact" href="../pages/contactInfo.do"
+                                           data-lang-key="contactMethod">Contact us</a>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="order-management" id="order-management" style="display:none">
+                        <a href="../pages/orderManage.do">个人中心</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div class="main">
+        <div class="wp">
+            <h3 class="block-title" id="tracking-title" style="display: none;">货物跟踪 <small class="hidden">（最多可同时查询6个订单号）</small></h3>
+            <div class="tracking-search" id="tracking-search" style="display: none;">
+                <!--<form class="submitForm" id="searchForm">
+	                <ul id="searchBox">
+	                    <li>
+	                        <div class="search-select-box" class="number">
+		                        <div>
+		                            <select name="" id="">
+		                                <option value="O" selected="selected">订单号</option>
+		                                <option value="A">运单号</option>
+		                            </select>
+		                            <input type="text" data-pattern="^C[0-9]{14}$" class="toUpperCase" data-toggle="tooltip"  title="请输入正确的订单号/运单号"/>
+	                            </div>
+	                        </div>
+	                        <div class="search-select-box" class="number">
+	                            <div>
+	                                <select name="" id="">
+	                                    <option value="O" selected="selected">订单号</option>
+	                                    <option value="A">运单号</option>
+	                                </select>
+	                                <input type="text" data-pattern="^C[0-9]{14}$" class="toUpperCase" data-toggle="tooltip"  title="请输入正确的订单号/运单号"/>
+	                            </div>
+	                        </div>
+	                        <div class="search-select-box" class="number">
+	                            <div>
+	                                <select name="" id="">
+	                                    <option value="O" selected="selected">订单号</option>
+	                                    <option value="A">运单号</option>
+	                                </select>
+	                                <input type="text" data-pattern="^C[0-9]{14}$" class="toUpperCase" data-toggle="tooltip"  title="请输入正确的订单号/运单号"/>
+	                            </div>
+	                        </div>
+	                        <a class="icon add" id="addSearch">添加</a>
+	                        <div class="search-lists hidden" id="searchLists">
+	                            <div class="search-select-box">
+	                                <div>
+	                                    <select name="" id="">
+                                        <option value="O" selected="selected">订单号</option>
+                                        <option value="A">运单号</option>
+                                    </select>
+                                    <input type="text" data-pattern="^C[0-9]{14}$" class="toUpperCase" data-toggle="tooltip"  title="请输入正确的订单号/运单号"/>
+	                                </div>
+	                            </div>
+	                            <div class="search-select-box">
+	                                <div>
+	                                   <select name="" id="">
+                                        <option value="O" selected="selected">订单号</option>
+                                        <option value="A">运单号</option>
+                                    </select>
+                                    <input type="text" data-pattern="^C[0-9]{14}$" class="toUpperCase" data-toggle="tooltip"  title="请输入正确的订单号/运单号"/>
+	                                </div>
+	                            </div>
+	                            <a class="icon del">减少</a>
+	                        </div>
+	                        <div class="verification-code">
+	                            <div>
+	                                <span><i>*</i>验证码</span>
+	                                <input id="captcha" type="text" data-pattern="^[\S\s]{0,6}$" data-required="required"  data-toggle="tooltip"  title="验证码不正确，请重新输入！"/>
+	                                <img id="captchaImg" src="../captcha/captchaImage.do?fromCargoTracking=true" alt="验证码"/>
+	                            </div>
+	                        </div>
+	                    </li>
+	                </ul>
+	                <div class="query-btn">
+	                    <button type="button" class="btn btn-danger">查 询</button>
+	                </div>
+	            </form>-->
+	            
+	            <form class="submitForm" id="searchForm">
+									<div id="searchBox">
+                    <ul>
+                        <li>
+                            <div class="group">
+                                <select name="selectOorA">
+                                    <option value="O">订单号</option>
+                                    <option value="A" selected>运单号</option>
+																</select>
+																<input id="orderId" class="toUpperCase" type="text" placeholder="例：C12345678123456" style="display: none;" />
+                                
+                                <input id="awbNo" class="toUpperCase" type="text" placeholder="" />
+                                <!-- <input id="orderId" class="toUpperCase" type="text" data-required="required" data-toggle="tooltip" 
+                                	title="输入正确的订单号" data-pattern="^C[0-9]{14}$" placeholder="例：C12345678123456" />
+                                
+                                <input id="awbNo" class="toUpperCase" type="text" data-required="required" data-toggle="tooltip" 
+                                	title="输入正确的运单号" data-pattern="^[0-9]{3}-[0-9]{8}$" placeholder="例：784-12345678" style="display: none;"/> -->
+                            </div>
+												</li>
+												<li style="width: 330px;">
+													<div>
+														<label>订舱日期</label>
+														<div class="form-item-unit">
+															<input type="text" class="start-date datePicker" readonly id="bookingDateStart">
+																<div class="to">至</div>
+															<input type="text" class="end-date datePicker" readonly id="bookingDateEnd">
+														</div>
+													</div>
+												</li>
+												<li>
+													<div>
+														<label>航班日期</label>
+														<div class="form-item-unit">
+															<input type="text" class="start-date datePicker" readonly id="flightDateStart">
+															<div class="to">至</div>
+															<input type="text" class="end-date datePicker" readonly id="flightDateEnd">
+														</div>
+													</div>
+												</li>
+										</ul>
+										<ul style="padding-top: 0;">
+												<li>
+                            <div>
+                                <label> 航班号</label>
+																<input id="flightNo" class="toUpperCase" type="text" maxlength="7"/>
+																<!-- <input id="flightNo" class="toUpperCase" type="text" maxlength="7" data-required="required" data-toggle="tooltip" title="请输入正确的航班号" data-pattern="^([0-9a-zA-Z]{2})+([0-9]{1,4})+([a-zA-Z]{0,1})$"/> -->
+                            </div>
+                        </li>
+                        <!-- <li style="width: 330px;">
+                            <label><i>*</i> 验证码</label>
+                            <div class="input-group" style="width:220px">
+                                <input id="captcha" type="text" maxlength="6" />
+                                <span class="addon"><img id="captchaImg" src="../cargotracking/getCaptchaImg.do" alt="验证码"></span>
+                            </div>
+                        </li> -->
+                        <li class="query-btn">
+														<button type="button" class="btn btn-primary btn-xs" id="searchFormSubmit">查 询</button>
+														<button type="button" class="btn btn-primary btn-xs" id="resetForm">清空</button>
+                            <button type="button" class="btn btn-primary btn-xs hidden">返 回</button>
+                        </li>
+										</ul>
+									</div>
+                </form>
+            </div>
+            <!--查询结果-->
+            <div class="cargo-tracking"></div>
+	
+        </div>
+    </div>
+
+    <div class="modal fade" id="selectOrderModal">     
+		</div>
+		<div class="modal fade selectPrintFileModal" id="selectPrintFileModal">     
+		</div>
+		<!-- <div class="modal fade" id="mod-imageVerify">
+			<div class="modal-backdrop fade"></div>
+			<div class="modal-dialog" style="width:320px;">
+					<div class="modal-content">
+							<div class="modal-header">
+									<h2 class="text-center">图形验证码</h2>
+									<a class="icon close" role="button" data-dismiss="modal">关闭</a>
+							</div>
+							<div class="modal-body" style="height: 206px;">
+									
+							</div>
+					</div>
+			</div>
+		</div> -->
+
+<script  src="../js/lib/require.js"></script>
+<script  src="../js/app/config.js"></script>
+<script>
+require(['../modules/cargoTracking']);
+</script>
+    
+
+<footer>
+    <div class="footer hidden" id="footerCn">
+        <div class="page-container">
+            <div class="footer-nav-box">
+                <dl class="footer-nav-list langHidden">
+                    <dt>关于我们</dt>
+                    <dd><a class="cargoIntroduction" href="../pages/CargoIntroduction.do">公司简介</a>
+                    </dd>
+                    <dd><a class="newsMore"
+                           href="http://cargo.csair.com/WebFace/Tang.WebFace.News/NewsMore.aspx">新闻动态</a></dd>
+                    <dd><a class="corporate" href="../pages/Corporate.do">企业荣誉</a></dd>
+                </dl>
+                <dl class="footer-nav-list">
+                    <dt data-lang-key="customerService">客户服务</dt>
+                    <dd><a class="contact" href="../pages/contactInfo.do" data-lang-key="contactUs">联系我们</a></dd>
+                    <dd><a class="gd langHidden" href="../pages/shippingGuide.do">收运指南</a></dd>
+                    <dd><a class="faq langHidden" href="../pages/questionAndAnswer.do" target="_blank">在线客服</a></dd>
+                </dl>
+                <dl class="footer-nav-list langHidden">
+                    <dt>更多</dt>
+                    <dd><a class="airplaneType" href="../pages/airplaneType.do">机型板型</a></dd>
+                    <dd><a class="airplaneType" href="../pages/privacyNotice.do">隐私政策</a></dd>
+                    <dd><a class="airplaneType" href="../pages/sdkList.do">第三方信息共享清单</a></dd>
+                    <dd><a class="airplaneType" href="../pages/userInfoCollectList.do">个人信息收集清单</a></dd>
+                    <dd><a href="#" role="button" id="transportationConditions_btn">货物运输总条件</a></dd>
+                </dl>
+                <div class="footer-logo-tel">
+                    <div class="footer-logo">
+                        <div class="bg-logo_bottom"></div>
+                    </div>
+                    <div class="footer-tel">
+                        <div class="bg-tel"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Copyright-language">
+                <div class="Copyright">
+                    <a href="#" data-lang-key="copyright">Copyright(C)1997-2021 中国南方航空股份有限公司 版权所有</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank"
+                       data-lang-key="recordNumber">粤ICP备05053330号</a>
+                </div>
+                <div class="language langHidden">
+                    <a href="#">
+                        <div class="bg-icon_yuyan"></div>
+                        <span>中文</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer hidden" id="footerEn">
+        <div class="page-container">
+            <div class="footer-nav-box">
+                <dl class="footer-nav-list">
+                    <dt data-lang-key="customerService" style="width: 150px;">Customer service</dt>
+                    <dd><a class="contact" href="../pages/contactInfo.do" data-lang-key="contactUs">Contact us</a></dd>
+                </dl>
+                <div class="footer-logo-tel">
+                    <div class="footer-logo">
+                        <div class="bg-logo_bottom"></div>
+                    </div>
+                    <div class="footer-tel">
+                        <div class="bg-tel-en"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Copyright-language">
+                <div class="Copyright">
+                    <a href="#" data-lang-key="copyright">Copyright(C)1997-2025 China Southern Airlines Company Limited all rights reserved ICP License Code for Management: Guangdong Province</a>
+                    <a href="https://beian.miit.gov.cn" target="_blank"
+                       data-lang-key="recordNumber">ICP-05053330</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+<script>
+    // 判断是否是从唐翼官网跳转过来,如果tangLang有值就表示是
+    if(getLangFromUrl(window.location.href)){
+        // 如果有值就重新设置语言
+        localStorage.setItem('BSA_LANGUAGE',getLangFromUrl(window.location.href))
+    }
+    var currentLang = localStorage.getItem('BSA_LANGUAGE');
+    if (currentLang === "en") {
+        var pathname=window.location.pathname
+        // 允许跳转的地址表
+        var pathnameList=["/tangb2cweb/pages/home","/pages/home","/tangb2cweb/pages/home.do","/pages/home.do","/tangb2cweb/pages/cargoFlightTime.do","/pages/cargoFlightTime.do","/tangb2cweb/pages/contactInfo.do","/pages/contactInfo.do","/tangb2cweb/pages/privacyNotice.do","/pages/privacyNotice.do","/tangb2cweb/pages/sdkList.do","/pages/sdkList.do"]
+        // 如果地址不在pathnameList中,则直接跳转到首页
+        if (!pathnameList.includes(pathname)) {
+            // 直接跳转到首页
+            window.location.href="../pages/home.do"
+        }
+        // 获取元素并添加/移除 hidden 类
+        document.getElementById('headCn').classList.add('hidden');
+        document.getElementById('headEn').classList.remove('hidden');
+        document.getElementById('footerCn').classList.add('hidden');
+        document.getElementById('footerEn').classList.remove('hidden');
+    } else {
+        document.getElementById('headCn').classList.remove('hidden');
+        document.getElementById('headEn').classList.add('hidden');
+        document.getElementById('footerCn').classList.remove('hidden');
+        document.getElementById('footerEn').classList.add('hidden');
+    }
+    // 暂时屏蔽
+    var cookiePolicy = document.querySelector('.cookie-policy')
+    var cookiePolicyEn = document.querySelector('.cookie-policy-en')
+    var cookiePolicyBtn = document.querySelector('#agree-cookie-policy')
+    var cookiePolicyEnBtn = document.querySelector('#agree-cookie-policy-en')
+    cookiePolicyBtn.onclick = function () {
+        var str = "cookie=" + 'true;'
+        var domain = location.host
+        document.cookie = str + "path=/;" + domain
+        cookiePolicy.style.display = 'none'
+    }
+    cookiePolicyEnBtn.onclick = function () {
+        var str = "cookie=" + 'true;'
+        var domain = location.host
+        document.cookie = str + "path=/;" + domain
+        cookiePolicyEn.style.display = 'none'
+    }
+
+    // 判断有没有点击同意cookie政策
+    var arrStr = document.cookie.split("; ");
+    var cookiePolicyState = false
+    for (var i = 0; i < arrStr.length; i++) {
+        var temp = arrStr[i].split("=");
+        if (temp[0] === 'cookie') {
+            cookiePolicyState = true
+        };
+    }
+    if (cookiePolicyState) {
+        cookiePolicy.style.display = 'none'
+        cookiePolicyEn.style.display = 'none'
+    } else {
+        cookiePolicy.style.display = 'block'
+        cookiePolicyEn.style.display = 'block'
+    }
+
+    // 获取路径里面tangLang值
+    function getLangFromUrl(url) {
+        try {
+            // 创建URL对象
+            const urlObj = new URL(url);
+            // 使用URLSearchParams获取查询参数
+            const params = new URLSearchParams(urlObj.search);
+            // 返回tangLang参数值，如果不存在则返回null
+            return params.get('tangLang');
+        } catch (error) {
+            console.error('URL解析失败:', error);
+            return null;
+        }
+    }
+</script>
+
+<script>
+    require(['../modules/newdecorator', '../modules/freight-internationnalization']);
+
+</script>
+
+</html>

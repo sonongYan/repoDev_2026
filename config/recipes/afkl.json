@@ -1,0 +1,105 @@
+{
+  "carrier": "afkl",
+  "version": 2,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "AF KLM Cargo myCargo 官网直连（074/057 前缀，Angular SPA + tnt-api，HTTP 状态码判定）",
+  "entry": {
+    "url": "https://www.afklcargo.com/mycargo/",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 12000
+  },
+  "reportUrlTemplate": "https://www.afklcargo.com/mycargo/shipment/detail/{numberDash}",
+  "valueFormats": {
+    "number": "compact",
+    "numberDash": "awbDash"
+  },
+  "steps": [
+    {
+      "action": "click",
+      "locator": {
+        "role": { "type": "link", "name": "追踪" },
+        "css": ["a[href*='singlesearch']"]
+      },
+      "waitAfter": 6000
+    },
+    {
+      "action": "fill",
+      "valueFrom": "number",
+      "locator": {
+        "placeholder": "以074或057开头的运单",
+        "css": [
+          "textarea[placeholder*='074']",
+          "input[placeholder*='074']"
+        ]
+      }
+    },
+    {
+      "action": "press",
+      "key": "Enter",
+      "locator": {
+        "placeholder": "以074或057开头的运单",
+        "css": [
+          "textarea[placeholder*='074']",
+          "input[placeholder*='074']"
+        ]
+      },
+      "onFail": {
+        "action": "click",
+        "locator": {
+          "role": { "type": "button", "name": "追踪" },
+          "css": ["button[type='submit']"]
+        }
+      }
+    }
+  ],
+  "result": {
+    "mode": "xhr",
+    "xhr": {
+      "urlPattern": "/tnt-api/shipments/",
+      "acceptStatus": [200],
+      "notFoundStatus": [412, 404],
+      "successWhen": []
+    },
+    "wait": {
+      "timeoutMs": 45000,
+      "intervalMs": 1000
+    },
+    "onTimeout": {
+      "steps": [
+        {
+          "action": "fill",
+          "valueFrom": "number",
+          "locator": {
+            "placeholder": "以074或057开头的运单",
+            "css": [
+              "textarea[placeholder*='074']",
+              "input[placeholder*='074']"
+            ]
+          }
+        },
+        {
+          "action": "press",
+          "key": "Enter",
+          "locator": {
+            "placeholder": "以074或057开头的运单",
+            "css": [
+              "textarea[placeholder*='074']",
+              "input[placeholder*='074']"
+            ]
+          }
+        }
+      ],
+      "wait": {
+        "timeoutMs": 45000,
+        "intervalMs": 1000
+      }
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "v2：直连 singlesearch 只会渲染空壳（表单不出现），必须先打开 /mycargo/ 点导航「追踪」进入，表单 textarea 的 placeholder 为「以074或057开头的运单」。接口 200=明细数组，412/404=无此单"
+  }
+}

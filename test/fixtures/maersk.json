@@ -1,0 +1,11 @@
+{
+  "carrier": "maersk",
+  "queryType": "container",
+  "samples": [
+    {
+      "number": "MSKU7294860",
+      "expect": "hasResult",
+      "note": "历史样本：查询可通但事件数可能为 0（官网未返轨迹），事件数为 0 不代表配方失效"
+    }
+  ]
+}

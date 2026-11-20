@@ -1,0 +1,1 @@
+var c=(function(r){return r.ALL_DAY_ALL_HOURS_NUMBER="24/7",r.DEFAULT="DEFAULT",r})(c||{}),e=(function(r){return r.WARNING="alert-afkl-icon bg-yellow",r.ERROR="cross-circle-afkl-icon bg-red",r.CHECK="check-circle-afkl-icon bg-green",r})(e||{});export{c as a,e as b};

@@ -1,0 +1,58 @@
+{
+  "carrier": "emirates",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "Emirates SkyCargo eSkyCargo 直连（176 前缀，URL hash 参数自动触发搜索）",
+  "entry": {
+    "url": "https://eskycargo.emirates.com/app/offerandorder/#/shipments/list?type=D&values={number}",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 1000
+  },
+  "reportUrlTemplate": "https://eskycargo.emirates.com/app/offerandorder/#/shipments/list?type=D&values={number}",
+  "valueFormats": {
+    "number": "compact",
+    "numberDash": "awbDash"
+  },
+  "steps": [],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": ["Search Results ("],
+      "noDataKeywords": [
+        "no shipments found",
+        "no shipment found",
+        "no result",
+        "no data",
+        "no record",
+        "no booking",
+        "not found",
+        "invalid",
+        "未找到",
+        "无结果",
+        "查无"
+      ]
+    },
+    "wait": {
+      "timeoutMs": 60000,
+      "intervalMs": 2000
+    },
+    "postMatchSteps": [
+      {
+        "action": "click",
+        "locator": {
+          "text": "Show Details",
+          "css": ["text=Show Details"]
+        },
+        "waitAfter": 1500
+      }
+    ]
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "URL hash 中的 values 为 11 位紧凑单号，SPA 自动搜索；冷启动可能 30s+，等待上限 60s。结果卡片默认折叠，需点 Show Details 展开件数/重量/SHC"
+  }
+}

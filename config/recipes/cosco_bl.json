@@ -1,0 +1,96 @@
+{
+  "carrier": "cosco",
+  "version": 1,
+  "queryType": "bl",
+  "queryKey": "number",
+  "description": "COSCO eBusiness 提单号查询（与箱号查询同页，仅切换下拉选项与输入框）",
+  "entry": {
+    "url": "https://elines.coscoshipping.com/ebusiness/",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 4000
+  },
+  "valueFormats": {
+    "number": "upper"
+  },
+  "popups": [
+    {
+      "css": [
+        "button:has-text('确定')",
+        "button:has-text('确认')",
+        "button:has-text('同意')",
+        "button:has-text('OK')"
+      ],
+      "waitAfter": 1500
+    },
+    {
+      "css": [
+        "button:has-text('允许全部')",
+        "button:has-text('拒绝全部')",
+        "button:has-text('接受全部')",
+        "button:has-text('同意全部')",
+        "button:has-text('接受')",
+        "button:has-text('同意')",
+        "button:has-text('Accept')"
+      ],
+      "waitAfter": 1000
+    }
+  ],
+  "steps": [
+    { "action": "wait", "ms": 2000 },
+    {
+      "action": "click",
+      "optional": true,
+      "locator": { "css": ["li.search_t_act"] },
+      "waitAfter": 1500
+    },
+    {
+      "action": "click",
+      "optional": true,
+      "locator": {
+        "css": [".ivu-select .ivu-select-selection", ".ivu-select"]
+      },
+      "waitAfter": 1000
+    },
+    {
+      "action": "click",
+      "locator": {
+        "css": ["li.ivu-select-item:has-text('提单号')", "li.ivu-select-item >> text=提单号"]
+      },
+      "waitAfter": 1000
+    },
+    {
+      "action": "fill",
+      "valueFrom": "number",
+      "locator": {
+        "placeholder": "提单号",
+        "css": ["input.ivu-input[placeholder*='提单号']", "input.ivu-input"]
+      }
+    },
+    {
+      "action": "click",
+      "locator": {
+        "role": { "type": "button", "name": "搜索" },
+        "css": ["button:has-text('搜索')"]
+      }
+    }
+  ],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": ["动态节点", "预计到港", "箱型尺寸"],
+      "noDataKeywords": ["无法找到", "未找到", "无数据", "无结果", "查无"]
+    },
+    "wait": {
+      "timeoutMs": 45000,
+      "intervalMs": 1500
+    },
+    "noDataGraceMs": 10000
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "提单号查询与箱号查询共用同一表单，仅下拉选项为「提单号」；结果页可能包含多个箱号，由 parseCoscoBillOfLading 汇总"
+  }
+}

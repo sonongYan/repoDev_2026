@@ -1,0 +1,76 @@
+{
+  "carrier": "qatar",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "Qatar Airways Cargo 官网直连（157 前缀，Salesforce Community SPA，URL 预填 + 手动提交）",
+  "entry": {
+    "url": "https://www.qrcargo.com/s/track-your-shipment?documentType=MAWB&documentPrefix={prefix}&documentNumber={number}",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 1000
+  },
+  "reportUrlTemplate": "https://www.qrcargo.com/s/track-your-shipment?documentType=MAWB&documentPrefix={prefix}&documentNumber={number}",
+  "valueFormats": {
+    "number": "awbNumber",
+    "prefix": "awbPrefix",
+    "numberDash": "awbDash"
+  },
+  "popups": [
+    {
+      "css": [
+        "button:has-text('Accept All')",
+        "button:has-text('Accept')",
+        "button:has-text('Got it')",
+        "button:has-text('Yes, got it')",
+        "button:has-text('Agree')",
+        "#onetrust-accept-btn-handler",
+        "button:has-text('同意')"
+      ],
+      "waitAfter": 800
+    }
+  ],
+  "steps": [],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": [
+        "Delivered",
+        "Arrived (",
+        "Departed (",
+        "Received from shipper",
+        "Received (",
+        "Notified consignee",
+        "Manifested"
+      ],
+      "noDataKeywords": [
+        "no data",
+        "no result",
+        "no shipment",
+        "no record",
+        "not found",
+        "invalid",
+        "未找到",
+        "无结果",
+        "查无",
+        "unable to find",
+        "unable to track"
+      ]
+    },
+    "noDataGraceMs": 10000,
+    "wait": {
+      "timeoutMs": 60000,
+      "intervalMs": 2000
+    },
+    "postMatchSteps": [
+      { "action": "wait", "ms": 3000 },
+      { "action": "scrollBottom", "times": 5, "intervalMs": 1500 }
+    ]
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "URL 参数 documentPrefix=前3位、documentNumber=后8位，SPA 会直接拉取结果（实测不会回填号码输入框，故不做 waitInputValue/点击提交）；结果关键词按 Qatar 实际文案「Delivered / Arrived ( / Departed (」匹配。结果区需滚动触发 Tracking Details 懒加载。noDataGraceMs=10s 避免页面静态文案误判"
+  }
+}

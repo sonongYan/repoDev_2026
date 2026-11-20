@@ -1,0 +1,100 @@
+{
+  "carrier": "track_trace",
+  "version": 1,
+  "queryType": "container",
+  "queryKey": "number",
+  "description": "Track-Trace 通用箱号聚合查询（按箱号前缀自动识别承运人，含 frame 限制逃生与 Seaco 直连）",
+  "entry": {
+    "url": "https://www.track-trace.com/container",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 0
+  },
+  "valueFormats": {
+    "number": "compact"
+  },
+  "popups": [
+    {
+      "css": [
+        "#coiOverlay button",
+        "button:has-text('Accept')",
+        "button:has-text('同意')",
+        "button:has-text('OK')"
+      ],
+      "waitAfter": 800
+    }
+  ],
+  "steps": [
+    { "action": "wait", "ms": 1200 },
+    {
+      "action": "fill",
+      "valueFrom": "number",
+      "locator": {
+        "css": ["#containerform input[name='number']", "input[name='number']"]
+      }
+    },
+    {
+      "action": "click",
+      "locator": {
+        "css": ["#containerform .btn", "#containerform button[type='submit']", "#containerform button"]
+      }
+    }
+  ],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": ["Ocean cargo", "Vessel", "Arrival", "Departure", "Estimated"]
+    },
+    "wait": {
+      "timeoutMs": 12000,
+      "intervalMs": 1000
+    }
+  },
+  "flow": {
+    "afterSubmitSettleMs": 3000,
+    "landingSettleMs": 2000,
+    "frameBlockPattern": "can not be displayed in a frame|can not integrate|Please reenter the number",
+    "carrierNamePatterns": [
+      "origin:\\s*([A-Za-z\\u4e00-\\u9fa5][A-Za-z\\u4e00-\\u9fa5 &/.-]{1,40})",
+      "integrate\\s+([A-Za-z][A-Za-z &/.-]{2,40})\\s+completely",
+      "open\\s+([A-Za-z][A-Za-z &/.-]{2,40})\\s+tracking page"
+    ],
+    "escape": {
+      "texts": ["Click here to show"],
+      "css": ["a:has-text('without frame')", "div.multi-noframe-message"],
+      "settleMs": 1500
+    },
+    "carrierList": {
+      "tabText": "Select company",
+      "itemCss": "div.js-link",
+      "settleMs": 5000
+    },
+    "seaco": {
+      "carrierMatch": "seaco",
+      "entryUrl": "https://seaweb.seacoglobal.com/sap/bc/ui5_ui5/sap/zseaco_ue17/index.html",
+      "urlPattern": "seacoglobal\\.com|tritonintl\\.com",
+      "unitLabel": "Unit Number",
+      "submit": { "role": { "type": "button", "name": "submit" } },
+      "resultKeywords": ["Status", "Vessel", "Location", "Container", "Available", "On Hire", "Off Hire", "Delivery"],
+      "resultTimeoutMs": 15000,
+      "resultIntervalMs": 1000,
+      "minResultLength": 50,
+      "fallbackMinLength": 100,
+      "fallbackFormPattern": "Unit Enquiry|Submit|Reset"
+    },
+    "homepageMarkers": [
+      "Cookie management",
+      "Allow all",
+      "Skip to content",
+      "Ask Maersk",
+      "MyFinance",
+      "Shipment & Container Tracking"
+    ]
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "track-trace 提交后可能：①直接加载结果；②停在 Select company 需点 div.js-link；③frame 限制页需点逃生链接或直连 Seaco。三种分支由适配器流程处理，页面事实（选择器/关键词/Seaco 地址）全部在本配方"
+  }
+}

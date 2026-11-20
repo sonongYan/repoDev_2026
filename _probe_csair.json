@@ -1,0 +1,394 @@
+{
+  "title": "南航物流官网 - 货物跟踪",
+  "url": "https://cargo.csair.com/pages/cargotracking",
+  "bodyText": "南航网站使用cookie和类似的技术来确保网站运行正常，改善您的用户体验。网站上第三方和其他cookie为您展示个性化的广告，这些第三方有可能监控您的网络行为。如果继续使用网站，表示您赞成这些cookie的设置。如果想了解详情或者调整cookie设置，请点击我们的 cookie政策。\n\n同意\n欢迎来到南航物流！  登录 注册 English\n下载app 客户服务热线：4006680066；020-28288888  在线客服\n首页\n服务大厅\n产品资讯\n交易平台\n业务指南\n关于我们\n货物跟踪\n订单号\n运单号\n订舱日期\n至\n航班日期\n至\n航班号\n查 询\n清空\n关于我们\n公司简介\n新闻动态\n企业荣誉\n客户服务\n联系我们\n收运指南\n在线客服\n更多\n机型板型\n隐私政策\n第三方信息共享清单\n个人信息收集清单\n货物运输总条件\nCopyright(C)1997-2021 中国南方航空股份有限公司 版权所有 粤ICP备05053330号\n 中文",
+  "inputs": [
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "id": null,
+      "name": "selectOorA",
+      "placeholder": null,
+      "cls": "",
+      "text": "订单号\n运单号"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "orderId",
+      "name": null,
+      "placeholder": "例：C12345678123456",
+      "cls": "toUpperCase",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "awbNo",
+      "name": null,
+      "placeholder": "",
+      "cls": "toUpperCase",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "bookingDateStart",
+      "name": null,
+      "placeholder": null,
+      "cls": "start-date datePicker",
+      "text": "2026-11-11"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "bookingDateEnd",
+      "name": null,
+      "placeholder": null,
+      "cls": "end-date datePicker",
+      "text": "2026-11-11"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "flightDateStart",
+      "name": null,
+      "placeholder": null,
+      "cls": "start-date datePicker",
+      "text": "2026-11-11"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "flightDateEnd",
+      "name": null,
+      "placeholder": null,
+      "cls": "end-date datePicker",
+      "text": "2026-11-11"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "flightNo",
+      "name": null,
+      "placeholder": null,
+      "cls": "toUpperCase",
+      "text": ""
+    }
+  ],
+  "buttons": [
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "首页"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "服务大厅"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "产品资讯"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": "tradding_btn",
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "交易平台"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "业务指南"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "物流服务"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "关于我们"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "首页"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": "tradding_btn",
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "交易平台"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "业务指南"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "关于我们"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": "searchFormSubmit",
+      "name": null,
+      "placeholder": null,
+      "cls": "btn btn-primary btn-xs",
+      "text": "查 询"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": "resetForm",
+      "name": null,
+      "placeholder": null,
+      "cls": "btn btn-primary btn-xs",
+      "text": "清空"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn btn-primary btn-xs hidden",
+      "text": "返 回"
+    },
+    {
+      "tag": "A",
+      "type": null,
+      "id": "transportationConditions_btn",
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": "货物运输总条件"
+    }
+  ],
+  "images": [],
+  "iframes": [],
+  "xhrs": [
+    {
+      "url": "https://cargo.csair.com/pages/cargotracking",
+      "status": 200,
+      "ct": "text/html;charset=utf-8",
+      "body": "<!doctype html>\r\n<html>\r\n\r\n<head>\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    <meta name=\"keywords\" content=\"南航物流官网，中国南方航空公司货运官网，南航货运物流官网\" />\r\n    <meta name=\"description\" content=\"南航物流官网，中国南方航空公司货运官网\" />\r\n    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\r\n    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->\r\n    <!--[if lt IE 9]>\r\n    <script src=\"https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js\"></script>\r\n    <![endif]-->\r\n    <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"../images/tab-icon.ico\" media=\"screen\" />\r\n    <link rel=\"s"
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/config.js",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/require.js",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/modules/newdecorator.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/modules/freight-internationnalization.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/store.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/jquery.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/modules/cargoTracking.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/homeI18n.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/laypage.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/session.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/base.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/template.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/city.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/text.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/drag.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/app/dialog.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/bootstrap-tooltip.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/jsencrypt.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/plugins.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/templates/cargoTracking.tpl?v=2.10.18",
+      "status": 200,
+      "ct": "application/vnd.groove-tool-template;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/jquery.qrcode.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/qrcode.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/json2.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/bootstrap-datepicker.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/js/lib/bootstrap-datepicker.zh-CN.min.js?v=2.10.18",
+      "status": 200,
+      "ct": "application/javascript;charset=utf-8",
+      "body": ""
+    },
+    {
+      "url": "https://cargo.csair.com/account/getNetHttpUrl.do",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"success\":true,\"exceptionMessage\":null,\"exceptionStack\":null,\"returnObject\":\"https://cargo.csair.com:8083\"}"
+    },
+    {
+      "url": "https://cargo.csair.com/account/checkLogin.do",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"success\":false,\"exceptionMessage\":\"请重新登录\"}"
+    },
+    {
+      "url": "https://cargo.csair.com/images/tab-icon.ico",
+      "status": 200,
+      "ct": "image/x-icon;charset=utf-8",
+      "body": ""
+    }
+  ]
+}

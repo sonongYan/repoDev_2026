@@ -1,0 +1,81 @@
+require.config({
+	urlArgs:"v=2.10.18",
+    waitSeconds:0,
+    paths: {
+        jquery:'../js/lib/jquery.min',
+        template:'../js/lib/template.min',
+        text:'../js/lib/text',
+        dialog:'../js/app/dialog',
+        base:'../js/app/base',
+        common:'../js/app/common',
+        city:'../js/app/city',
+        drag:'../js/app/drag',
+        laypage:'../js/app/laypage',
+        session:'../js/app/session',
+        store:'../js/app/store',
+        paginationInit:'../js/app/paginationInit',
+        toolUtil:'../js/app/toolUtil',
+        ajaxfileupload:'../js/lib/ajaxfileupload',
+        datepicker:'../js/lib/bootstrap-datepicker.min',
+        datepicker_zh:'../js/lib/bootstrap-datepicker.zh-CN.min',
+        plugins:'../js/lib/plugins',
+        json2:'../js/lib/json2',
+        tooltip:'../js/lib/bootstrap-tooltip',
+        citycode:'../modules/citycode',
+        bookingCabin:'../modules/bookingCabin',
+        moment:'../js/lib/moment',
+        mCustomScrollbar:'../js/lib/jquery.mCustomScrollbar',
+        mousewheel:'../js/lib/jquery.mousewheel',
+        qrCode:'../js/lib/qrcode.min',
+        jqueryQRCode:'../js/lib/jquery.qrcode.min',
+        barCode:'../js/lib/jquery-barcode.min',
+        //  前端生成pdf文件
+        html2canvas: '../js/lib/htmlToPdf/html2canvas.min',
+        bluebird: '../js/lib/htmlToPdf/bluebird.min',
+        jspdf: '../js/lib/htmlToPdf/jspdf.umd.min',
+        creatFilePDF:'../js/app/creatFilePDF',
+        //  前端生成pdf文件
+        appointmentTime:'../js/app/appointmentTime',
+        viewer: '../js/lib/viewer-jquery.min',
+        pagination: '../js/lib/pagination.min',
+        selectPicker: '../js/app/selectPicker',
+        myMultipleSelect: '../js/app/myMultipleSelect',
+        //bas-i18n
+        bsai18n: '../js/app/bsai18n',
+        JSEncrypt: '../js/lib/jsencrypt.min',
+        // SM4加密解密
+        sm4: '../js/app/sm4',
+        smUtils: '../js/app/smUtils',
+        // 国际城市下拉选择框
+        intCity:'../js/app/intCity',
+        // 输入框控件指令
+        positiveInput:'../js/app/positiveInput',
+        homeI18n:'../js/app/homeI18n'
+    },
+    shim: {  
+         ajaxfileupload: ['jquery'],  
+         datepicker:{deps:["jquery"],exports:"datepicker"},
+         datepicker_zh:{deps:["jquery","datepicker"],exports:"datepicker_zh"},
+         plugins:{deps:["jquery"],exports:'plugins'},
+         json2:{exports:'json2'},
+         citycode:{deps:["jquery"],exports:"citycode"},
+         jqueryQRCode:{deps:["jquery"],exports:"jqueryQRCode"},
+         qrCode:{deps:["jquery"],exports:"qrCode"},
+         barCode:{deps:["jquery"],exports:"barCode"},
+        //  前端生成pdf文件
+        html2canvas:{exports:"html2canvas"},
+        bluebird:{deps:["jquery"],exports:"bluebird"},
+        jspdf:{exports:"jspdf"},
+        //  前端生成pdf文件
+         tooltip:{deps:["jquery"],exports:"tooltip"},
+         mousewheel:{deps:["jquery"],exports:'mousewheel'},
+         mCustomScrollbar:{deps:["jquery","mousewheel"],exports:'mCustomScrollbar'},
+         appointmentTime: {deps:["jquery"],exports:"appointmentTime"},
+         viewer: {deps:["jquery"],exports:"viewer"},
+         pagination:{deps:["jquery"],exports:"pagination"},
+         selectPicker:{deps:["jquery"],exports:"selectPicker"},
+         drag:{deps:["jquery"],exports:"drag"},
+         myMultipleSelect:{deps:["jquery"],exports:"myMultipleSelect"},
+         bsai18n:{deps:["jquery"],exports:"bsai18n"}
+       }
+});

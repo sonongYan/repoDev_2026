@@ -1,0 +1,49 @@
+  {
+  "carrier": "malaysia",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "MASkargo 官网 shipment-tracking 页（232 前缀，URL 参数自动查询，XHR 结果判定）",
+  "entry": {
+    "url": "https://www.maskargo.com/en/shipment-tracking.html?prefixNumber={prefix}&awbNumber={number}",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 3000
+  },
+  "reportUrlTemplate": "https://www.maskargo.com/en/shipment-tracking.html?prefixNumber={prefix}&awbNumber={number}",
+  "valueFormats": {
+    "number": "awbNumber",
+    "prefix": "awbPrefix",
+    "numberDash": "awbDash"
+  },
+  "steps": [],
+  "result": {
+    "mode": "xhr",
+    "xhr": {
+      "urlPattern": "/bin/mh/revamp/maskargo/shipment/tracking",
+      "method": "GET",
+      "acceptStatus": [200, 500],
+      "successWhen": [
+        { "path": "data", "op": "truthy" }
+      ],
+      "errorMessagePath": "status",
+      "dataPath": "data",
+      "emptyBodyMeansNoData": true
+    },
+    "domFallback": {
+      "match": "some",
+      "successKeywords": ["Tracking Details", "Shipment Status"],
+      "noDataKeywords": ["Status Not Available"]
+    },
+    "noDataGraceMs": 12000,
+    "wait": {
+      "timeoutMs": 20000,
+      "intervalMs": 1500
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "URL 参数 prefixNumber/awbNumber 由页面自动发起查询，无需手动提交；接口返回体为空视为「无记录」，HTTP 500 + {\"status\":\"Something went wrong\"} 视为渠道异常（不是业务无数据），需如实上报尝试地址。历史接口返回 data.history（timestamp/station/description/pieces/weight/flight.flightNumber/status），字典说明见 parsers/malaysia.js"
+  }
+}

@@ -1,0 +1,299 @@
+{
+  "title": "Shipment Tracking",
+  "url": "https://www.maskargo.com/en/shipment-tracking.html",
+  "bodyText": "Skip to main content\n\nImportant News: EXTENSION OF FUEL SURCHARGE (FSC) IMPLEMENTATION UNTIL 31 MARCH 2026\n\nImportant News: Fuel Surcharge (MYC) Update for 16 – 31 August 2026\n\nImportant News: MASkargo Freighter Cancellation Statement\n\nImportant News: Update: Continued Suspension of MASkargo Freighter Flights to DOH and AMS\n\nImportant News: Temporary Suspension of Scheduled KUL–DOH–EU Cargo Operations\n\nImportant News: EXTENSION OF FUEL SURCHARGE (FSC) IMPLEMENTATION UNTIL 31 MARCH 2026\n\nImportant News: Fuel Surcharge (MYC) Update for 16 – 31 August 2026\n\nFind out more\nProducts\nServices\nNetwork & Fleet\nAbout Us\nSupport\nImage of banner: alt text\nShipment Tracking\nHome\nShipment Tracking\nPrefix\nPrefix\nAWB Number\nAWB Number\nShipment Tracking\nStay on top of every shipment\nTrack your cargo using the 11-digit AWB number to monitor its journey from origin to destination\nProducts\nMK General\nMK Pharma\nMK Fresh\nMore\nServices\nMK Transit\nMK Charter\nMK Halal\nMore\nAbout Us\nOur Story\nAward & Achievements\nSustainability\nLoyalty\nMore\nMedia Centre\nSupport\n\nCONNECT WITH US\n\nfacebook\ninstagram\nlinkedin\n\nMABKARGO SDN BHD © Copyright 2026 201501033990 (1159310-T)\n\nLegal\nPrivacy\nCorporate Governance\nGeneral Conditions of Carriage",
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": null,
+      "placeholder": "",
+      "cls": "input w-full",
+      "text": "https://www.maskargo.com/content/mk/en/shipment-tracking.htm"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": "prefixField",
+      "placeholder": "",
+      "cls": "input w-full",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": "awbNumberField",
+      "placeholder": "",
+      "cls": "input w-full",
+      "text": ""
+    }
+  ],
+  "buttons": [
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "p-0 ml-10 md:ml-5 rtl:ml-0 rtl:mr-10 rtl:md:mr-5",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Products"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Services"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Network & Fleet"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "About Us"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Support"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-side-interaction >xl:hidden",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-clear rounded-full py-2 m-auto",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-clear rounded-full py-2 m-auto",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-clear rounded-full py-2 m-auto",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-large w-full mx-auto md:mx-auto w-full",
+      "text": "Shipment Tracking"
+    }
+  ],
+  "images": [
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/header/logo-white-blue.png",
+      "id": null,
+      "cls": "logo-primary-img",
+      "w": 144,
+      "h": 28
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/header/logo-on-white.png",
+      "id": null,
+      "cls": "logo-primary-img",
+      "w": 157,
+      "h": 31
+    },
+    {
+      "tag": "IMG",
+      "src": "",
+      "id": null,
+      "cls": "logo-secondary-img",
+      "w": 40,
+      "h": 0
+    },
+    {
+      "tag": "IMG",
+      "src": "",
+      "id": null,
+      "cls": "logo-secondary-img",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/MAB_logo.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 67,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/Firefly.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 90,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/amal.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 68,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/enrich.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 80,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/journify.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 51,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/MASkargo-160x80-white.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 80,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/aerodrat.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 71,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/mabaacadmey.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 90,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/mabaengi.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 90,
+      "h": 40
+    },
+    {
+      "tag": "IMG",
+      "src": "/content/dam/maskargo-revamp/my/en/footer/MAG-160x80-white.png",
+      "id": null,
+      "cls": "h-[40px] w-auto inline-block",
+      "w": 80,
+      "h": 40
+    }
+  ],
+  "iframes": [
+    {
+      "src": "",
+      "id": null
+    }
+  ],
+  "xhrs": [
+    {
+      "url": "https://www.maskargo.com/en/shipment-tracking.html",
+      "status": 200,
+      "ct": "text/html;charset=utf-8",
+      "body": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\" data-site-name=\"maskargo\">\n\n<head>\n    <meta charset=\"UTF-8\"/>\n\t\n    <title>Shipment Tracking</title>\n    \n    \n    <meta name=\"template\" content=\"mk-content-page-template\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n\n    \n\n    \n\n    \n\n\t\n    <meta name=\"content-page-ref\" content=\"Gs6IJHAOGQ3vhUx8EZD90Mo7hfHwRcz_VZgEfYr4sEm_v2SXwZpLEOaRph2Re8fSULM0mqxjby52q_etrHk3ww\"/>\n<script defer=\"defer\" type=\"text/javascript\" src=\"https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js\" data-routing=\"env=prod,tier=publish,ams=Malaysia Airlines\"></script>\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/mh/clientlibs/clientlib-base.min.css\" type=\"text/css\">\n\n\n\n\n\n\n\n\t\n\t<meta name=\"theme-color\" content=\"rgb(20, 70, 123)\""
+    },
+    {
+      "url": "https://www.maskargo.com/content/mk/en/shipment-tracking.model.json",
+      "status": 301,
+      "ct": "text/html; charset=iso-8859-1",
+      "body": ""
+    },
+    {
+      "url": "https://www.maskargo.com/en/shipment-tracking.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"cssClassNames\":\"content-page page basicpage\",\"brandSlug\":\"\",\"componentsResourceTypes\":[\"mh/components/carousel\",\"mh/components/mh-layout-container\",\"mh/components/mh-breadcrumb\",\"mh/components/maskargo/booking/maskargo-shipment-tracking\",\"mh/components/page\",\"wcm/foundation/components/responsivegrid\",\"nt:unstructured\",\"mh/components/page-properties\",\"mh/components/html-component\",\"mh/components/page-structure/maskargo/content-page\",\"mh/components/banner\",\"mh/components/script-executor\"],\"htmlPageItems\":[],\"lastModifiedDate\":1777252695493,\"title\":\"Shipment Tracking\",\"language\":\"en\",\"templateName\":\"mk-content-page-template\",\":type\":\"mh/components/page-structure/maskargo/content-page\",\":items\":{\"root\":{\"columnClassNames\":{\"page_properties\":\"aem-GridColumn aem-GridColumn--default--12\",\"embed"
+    },
+    {
+      "url": "https://www.maskargo.com/en/shipment-tracking.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"cssClassNames\":\"content-page page basicpage\",\"brandSlug\":\"\",\"componentsResourceTypes\":[\"mh/components/carousel\",\"mh/components/mh-layout-container\",\"mh/components/mh-breadcrumb\",\"mh/components/maskargo/booking/maskargo-shipment-tracking\",\"mh/components/page\",\"wcm/foundation/components/responsivegrid\",\"nt:unstructured\",\"mh/components/page-properties\",\"mh/components/html-component\",\"mh/components/page-structure/maskargo/content-page\",\"mh/components/banner\",\"mh/components/script-executor\"],\"htmlPageItems\":[],\"lastModifiedDate\":1777252695493,\"title\":\"Shipment Tracking\",\"language\":\"en\",\"templateName\":\"mk-content-page-template\",\":type\":\"mh/components/page-structure/maskargo/content-page\",\":items\":{\"root\":{\"columnClassNames\":{\"page_properties\":\"aem-GridColumn aem-GridColumn--default--12\",\"embed"
+    },
+    {
+      "url": "https://www.maskargo.com/etc.clientlibs/mh/clientlibs/clientlib-vue/resources/assets/MaskargoShipmentTracking-DvilFHEm.js",
+      "status": 200,
+      "ct": "application/javascript",
+      "body": ""
+    },
+    {
+      "url": "https://bam.nr-data.net/1/NRJS-691c1f6a87ac2447f9a?a=1589112896&sa=1&v=1.293.0&t=Unnamed%20Transaction&rst=4622&ck=0&s=3be29174d560b2e3&ref=https://www.maskargo.com/en/shipment-tracking.html&ptid=1ad016ff9011d4f9&af=err,spa,xhr,stn,ins&be=856&fe=2134&dc=2134&fsh=1&perf=%7B%22timing%22:%7B%22of%22:1794395043284,%22n%22:0,%22f%22:1,%22dn%22:1,%22dne%22:1,%22c%22:10,%22s%22:10,%22ce%22:476,%22rq%22:4",
+      "status": 200,
+      "ct": "application/json",
+      "body": "{\"stn\":0,\"err\":1,\"ins\":1,\"spa\":1,\"sr\":1,\"srs\":2,\"st\":1,\"sts\":2,\"log\":2,\"logapi\":2,\"app\":{\"agents\":[{\"entityGuid\":\"NjYzMjM1MHxCUk9XU0VSfEFQUExJQ0FUSU9OfDE1ODkxMTI4OTY\"}],\"nrServerTime\":1794395054179}}"
+    },
+    {
+      "url": "https://bam.nr-data.net/events/1/NRJS-691c1f6a87ac2447f9a?a=1589112896&sa=1&v=1.293.0&t=Unnamed%20Transaction&rst=11119&ck=0&s=3be29174d560b2e3&ref=https://www.maskargo.com/en/shipment-tracking.html&ptid=1ad016ff9011d4f9",
+      "status": 200,
+      "ct": "image/gif",
+      "body": ""
+    }
+  ]
+}

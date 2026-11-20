@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta content="telephone=no" name=format-detection><meta content=yes name=apple-mobile-web-app-capable><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><title>南航物流</title><script>;(function() {
+        function initREM() {
+          var clientW = Math.max(document.documentElement.clientWidth, 320)
+          var html = document.querySelector('html')
+          var rem = clientW / 7.5
+          html.style.fontSize = rem + 'px'
+        }
+
+        function whenWindowSizeChange(cb, time) {
+          var tid = null
+          var eventName =
+            'onorientationchange' in window ? 'orientationchange' : 'resize'
+          time = time || 200
+          window.addEventListener(eventName, function() {
+            window.clearTimeout(tid)
+            window.setTimeout(function() {
+              cb()
+            }, time)
+          })
+        }
+        initREM()
+        whenWindowSizeChange(function() {
+          initREM()
+        }, 200)
+
+        document.addEventListener(
+          'touchmove',
+          function(event) {
+            if (event.touches.length > 1) {
+              event.preventDefault()
+            }
+          },
+          { passive: false }
+        )
+
+        window.refreshMainPage = function(identifier, type, moduleMessage) {
+          window.location.reload()
+        }
+      })()</script><link href=/mcargo/static/css/app.1d07dbc3b02f4d030bdfad9d18a59154.css rel=stylesheet></head><body><div id=app></div><script src=https://yst.gdzwfw.gov.cn/moa/moa-1.0.0.js></script><script src=./static/switchList.js></script><script type=text/javascript src=/mcargo/static/js/manifest.2ecc9cd50411c94cc3ee.js></script><script type=text/javascript src=/mcargo/static/js/vendor.af543a5e6f2951c84734.js></script><script type=text/javascript src=/mcargo/static/js/app.ba9ee192ab6cade7f039.js></script></body></html>

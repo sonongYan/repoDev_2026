@@ -1,0 +1,95 @@
+{
+  "carrier": "msc",
+  "version": 1,
+  "queryType": "container",
+  "queryKey": "number",
+  "description": "MSC 官网直连（msc.com 箱号表单提交，回车优先 + Search 按钮兜底）",
+  "entry": {
+    "url": "https://www.msc.com/en/track-a-shipment",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 2000
+  },
+  "urlTemplates": [],
+  "valueFormats": {
+    "number": "compact"
+  },
+  "popups": [
+    {
+      "css": [
+        "button:has-text('接受所有 Cookie')",
+        "button:has-text('Accept all cookies')",
+        "#onetrust-accept-btn-handler"
+      ],
+      "waitAfter": 1000
+    }
+  ],
+  "steps": [
+    {
+      "action": "fill",
+      "valueFrom": "number",
+      "locator": {
+        "placeholder": "Enter a Container/Bill of Lading Number",
+        "css": [
+          "input[placeholder*='Container'][placeholder*='Bill of Lading']",
+          "input[name='trackingNumber']",
+          "input#trackingNumber"
+        ]
+      }
+    },
+    {
+      "action": "press",
+      "key": "Enter",
+      "locator": {
+        "placeholder": "Enter a Container/Bill of Lading Number",
+        "css": [
+          "input[placeholder*='Container'][placeholder*='Bill of Lading']",
+          "input[name='trackingNumber']",
+          "input#trackingNumber"
+        ]
+      }
+    }
+  ],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": [
+        "Port of Load",
+        "Port of Discharge",
+        "Tracking results provided by MSC"
+      ],
+      "noDataKeywords": [
+        "No results found",
+        "We couldn't find"
+      ]
+    },
+    "wait": {
+      "timeoutMs": 15000,
+      "intervalMs": 1500
+    },
+    "onTimeout": {
+      "steps": [
+        {
+          "action": "click",
+          "locator": {
+            "role": { "type": "button", "name": "Search" },
+            "css": [
+              "button[type='submit']:has-text('Search')",
+              "button:has-text('Search')"
+            ]
+          }
+        }
+      ],
+      "wait": {
+        "timeoutMs": 22500,
+        "intervalMs": 1500
+      }
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "回车提交 15s 无结果时，再点 Search 按钮等 22.5s（与迁移前行为一致）。结果关键词用 some 匹配，避免不同箱型页面缺列导致误判失败"
+  }
+}

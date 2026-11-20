@@ -1,0 +1,58 @@
+{
+  "carrier": "maersk",
+  "version": 1,
+  "queryType": "container",
+  "queryKey": "number",
+  "description": "马士基官网直连（箱号/提单号共用 URL 路由，免登录，无表单步骤）",
+  "entry": {
+    "url": "https://www.maersk.com/tracking",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 90000,
+    "settleMs": 1500
+  },
+  "urlTemplates": [
+    "https://www.maersk.com/tracking/{number}"
+  ],
+  "valueFormats": {
+    "number": "compact"
+  },
+  "popups": [
+    {
+      "css": [
+        "button:has-text('Allow all')",
+        "button:has-text('Essential only')",
+        "button:has-text('接受全部')",
+        "#onetrust-accept-btn-handler"
+      ],
+      "waitAfter": 1000
+    }
+  ],
+  "steps": [],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": [
+        "Last updated",
+        "events completed",
+        "Vessel departure",
+        "Vessel arrival",
+        "Gate out"
+      ],
+      "noDataKeywords": [
+        "No results found",
+        "We couldn't find",
+        "No shipments found"
+      ]
+    },
+    "wait": {
+      "timeoutMs": 60000,
+      "intervalMs": 1500
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "SPA 由 URL 路由渲染，无需填表单；Cookie 弹窗关闭后直接等结果关键词。首页重定向防护只作用于 track-trace 通道，不在此配方内"
+  }
+}

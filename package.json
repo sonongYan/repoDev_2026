@@ -1,0 +1,31 @@
+{
+  "name": "patchright-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mail:run": "node src/mail/run.js",
+    "llm:run": "node src/llm/run.js",
+    "pipeline:run": "node src/pipeline/run.js",
+    "report:run": "node src/pipeline/run.js --report",
+    "reply:run": "node src/pipeline/run.js --report --reply",
+    "daemon": "node src/mail/daemon.js",
+    "daemon:once": "node src/mail/daemon.js --once",
+    "verify:recipe": "node tools/verify-recipe.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "imapflow": "^2.3.0",
+    "mailparser": "^3.9.37",
+    "marked": "^18.1.1",
+    "nodemailer": "^10.0.16",
+    "patchright": "^1.63.0"
+  }
+}

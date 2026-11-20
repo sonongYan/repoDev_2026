@@ -1,0 +1,1067 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <script src="../../../Scripts/json2.js" type="text/javascript"></script>
+    <script src="../../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+
+    <script src="../../../Scripts/jquery-ui-1.9.2.custom.js" type="text/javascript"></script>
+
+    <title>
+	唐翼-网上货运系统 CSN Cargo Online
+</title>
+    <script src="../../../Scripts/Encryption/RSA.js" type="text/javascript"></script>
+    <script src="../../../Scripts/Encryption/BigInt.js" type="text/javascript"></script>
+    <script src="../../../Scripts/Encryption/Barrett.js" type="text/javascript"></script>
+    <script src="../../../Scripts/MasterPage.js" type="text/javascript"></script>
+
+    
+    <link href="../../../style/WebFace/Tang.WebFace.Cargo/AwbBrower.css"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../../style/ContentPage.css" />
+    <script src="../../../Scripts/jquery.verify.js" type="text/javascript"></script>
+    <link href="../../../style/jquery-verify/style/jquery.verify.css" rel="stylesheet" />
+
+    <script type="text/javascript" language="javascript">
+		function getUrlParam(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+			if (r != null) return unescape(r[2]); return null; //返回参数值
+		}
+		var hasIgnore = false;
+        function ShowVerifyImage(callback) {
+			var imgUrl = 'https://aircargo.csair.com/verify/verifyImage/getId';
+			var txtImgId = "ctl00_ContentPlaceHolder1_txtImgId";
+			$("#" + txtImgId).val('');
+			var bindId = "ctl00_ContentPlaceHolder1_btnBrow";
+			var validateEnable = "1";
+			if (validateEnable != "1") {
+				if (callback != null) callback();
+				return;
+            }
+			var pImgId = getUrlParam("imgid");
+			var status = "1";
+			var lastImgId = "";
+			if (hasIgnore) status = "0";
+			//var rst = getUrlParam("rst");
+			if (pImgId && (status != "1" || !lastImgId || lastImgId != pImgId)) {
+				$('#' + txtImgId).val(pImgId);
+				//window.location.href = window.location.href + "&rst=1";
+				hasIgnore = true;
+				if (callback != null) callback();
+				return;
+			}
+			var tdialog = $("#verifyDialog").dialog({
+				height: 330,
+				width: 400,
+				// 模态开启
+				modal: true,
+				// 是否可拖拽
+				draggable: false,
+				// 最小宽度
+				minWidth: 300
+			});
+			var options = {
+				mode: "slide",
+				imgUrl: imgUrl,
+				//bgImgUrl: 'https://aircargo.csair.com/verify/verifyImage/getVerifyImageStream',
+				lang: "en",
+                ajaxHeader: { "Authorization": "dGFuZzpmbGlHMjkqQGoyQTBHRQ==" }, 
+				width: 360,  //非必填    默认260
+				height: 160,  //非必填    默认120
+				slideEvent: function (slideX, imgId, $this) {  //拖动完成的回调函数  slideX:拖动的距离  imgId:图片唯一id  obj:实例对象
+					
+					$.ajax({
+						type: "Post",
+						//url: "publish_index.aspx/GetRedirectUrl",
+						url: "/ValidateImage.ashx" + "?imgid=" + imgId + "&slidex=" + slideX,
+						contentType: "application/json; charset=utf-8",
+						dataType: "json",
+						async: false,
+						success: function (data) {
+							if (data == null || data.resultCode == null) {
+								//返回结果问题
+								$this.validateSlide(1);
+								return;
+							}
+							var resultCode = 1;
+							try {
+								resultCode = parseInt(data.resultCode);
+							}
+							catch(e) { }
+							$this.validateSlide(resultCode);
+
+							if (resultCode == 0) {
+								//校验成功触发查询
+								$("#verifyDialog").dialog("close");
+								$("#" + txtImgId).val(imgId);
+                                //$("#" + bindId).click();
+                                if (callback != null) callback();
+							}
+						},
+						fail: function () {
+							$this.validateSlide(1);
+						}
+
+
+					});
+					//$this.validateSlide(1)    //// 0验证成功 1验证失败 2验证码超时 3重试过多
+				}
+			};
+			Verify("verify-pic", options);
+
+		}
+        $(document).ready(function() {
+            currentPrefix = "../../../";
+
+            if ($("#ctl00_ContentPlaceHolder1_hfIsChangeTimeArea").val() == "true") {
+                $("#currentTimeArea").text($("#ctl00_ContentPlaceHolder1_hfCurrentArea").val());
+                $("#ipLocalDt").show();
+            }
+            else {
+                $("#currentTimeArea").text("(Local)");
+                $("#ipLocalDt").hide();
+            }
+
+            $("#ipLocalDt").click(function() {
+                $("#ctl00_ContentPlaceHolder1_btnLoc").click();
+            });
+
+            if ($("#ctl00_ContentPlaceHolder1_hfFromIndex").val() == "1") {
+                SerachCargoState();
+            }
+
+			$("#verifyDialog").hide();
+        });
+
+
+        function SerachCargoState() {
+            //先校验验证码
+			ShowVerifyImage(CheckIsSameAwb);
+            //CheckIsSameAwb();
+        }
+
+        function CheckIsSameAwb() {//检测国内国际是否同单号
+            var awbPrefix = $("#ctl00_ContentPlaceHolder1_txtPrefix").val();
+            var awbNo = $("#ctl00_ContentPlaceHolder1_txtNo").val();
+
+            if ($.trim(awbPrefix) == "" || $.trim(awbNo) == "") {
+                return;
+            }
+
+            $.ajax({
+                type: "post",
+                url: "AgentAwbBrower.aspx/GetAwbType",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                data: "{awbPrefix:'" + awbPrefix + "',awbNo:'" + awbNo + "'}",
+                success: function(data) {
+                var strReturn;
+                if (typeof (data.d) != 'undefined') {
+                    strReturn = $.trim(data.d);
+                }
+                else {
+                    if (typeof (data) != 'undefined') {
+                        strReturn = $.trim(data);
+                    }
+                }
+                if (strReturn == "-1") {
+                    $("#ctl00_ContentPlaceHolder1_btnBrow").click();
+                    return;
+                }
+                
+                    var returnType = strReturn.split("|")[0];
+                    if (returnType == "err") {//错误
+                        alert(strReturn.split("|")[1]);
+                        return;
+                    }
+                    var awbInfos = eval(strReturn.split("|")[1]);
+                    
+        
+
+                    if (returnType == "0") {//国内
+                        $("#ctl00_ContentPlaceHolder1_cbIsInter").attr("checked", false);
+                        $("#ctl00_ContentPlaceHolder1_btnBrow").click();
+                    }
+
+                    if (returnType == "1") {//国际
+                        $("#ctl00_ContentPlaceHolder1_cbIsInter").attr("checked", true);
+                        $("#ctl00_ContentPlaceHolder1_btnBrow").click();
+                    }
+
+                    if (returnType == "2") {//国内国际同单号
+                        ShowChooseDiv(awbInfos);
+                    }
+                },
+                error: function(err) {
+                    alert(err);
+                }
+            });
+        }
+
+
+
+
+        function HideElement(elementID) {
+            $("#" + elementID).addClass("cssHide");
+        }
+
+        function ShowElement(elementID) {
+            $("#" + elementID).removeClass("cssHide");
+        }
+
+        function ShowChooseDiv(awbInfos) {
+
+
+
+            var tb = document.getElementById("tbCheckIntOrDom");
+
+            $(tb).html("");
+            $(tb).html(" <tr><th>Choose</th><th>Awb</th><th>Dom\/Int</th><th>Special Code</th><th>Goods</th><th>Piece</th><th>Weight</th><th>Volume</th><th>Route</th><th>Issuing Date</th><th>Issuing Place</th></tr>")
+
+            $(awbInfos).each(function() {
+
+                var tr = document.createElement("tr")
+                var td = document.createElement("td");
+                var cb = document.createElement("input");
+                cb.type = "checkBox";
+                cb.name = "cbIntOrDom";
+                cb.value = this["AwbPostfix"];
+                td.appendChild(cb);
+                tr.appendChild(td);
+
+
+
+                td = document.createElement("td");
+                var textNode = document.createTextNode(this["AwbPrefix"] + "-" + this["AwbNo"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["AwbPostfix"] == "00000000" ? "DOM" : "INT");
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["SpCode"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["Goods"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["Piece"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["Weight"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["Volume"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["Routing"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                var date = new Date(parseInt(this["Op_Date"].substr(6)));
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDay() + 1));
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                textNode = document.createTextNode(this["CreatedCity"]);
+                td.appendChild(textNode);
+                tr.appendChild(td);
+
+
+                tb.appendChild(tr);
+            });
+
+            $("input[name='cbIntOrDom']").each(function() {
+                $(this).click(function() {
+                    if ($(this).val() == "00000000") {
+                        HideElement("dialogChoose");
+                        $("#dialogChoose").dialog("close");
+                        $("#ctl00_ContentPlaceHolder1_cbIsInter").attr("checked", false);
+                        $("#ctl00_ContentPlaceHolder1_btnBrow").click();
+                    }
+                    else {
+                        HideElement("dialogChoose");
+                        $("#dialogChoose").dialog("close");
+                        $("#ctl00_ContentPlaceHolder1_cbIsInter").attr("checked", true);
+                        $("#ctl00_ContentPlaceHolder1_btnBrow").click();
+                    }
+
+                });
+            })
+
+
+            $("#dialogChoose").dialog({
+                autoOpen: false,
+                modal: true,
+                width: 700,
+                title: 'Same AWB for both domestic & international shipments, please choose:',
+                zIndex: 20000,
+                resizable: false,
+                show: {
+                    effect: "blind",
+                    duration: 0
+                },
+                hide: {
+                    effect: "blind",
+                    duration: 300
+                }
+
+            });
+            ShowElement("dialogChoose");
+            $("#dialogChoose").dialog("open");
+        }
+    </script>
+
+ <style type="text/css">
+      .cssHide
+        {
+            display: none;
+        }
+    </style>
+
+
+
+    <script src="../../../Scripts/comm.js" type="text/javascript"></script>
+
+    <script src="../../../Scripts/MasterPage_AfterLoad.js" type="text/javascript"></script>
+
+    <script src="../../../Scripts/Base64.js" type="text/javascript"></script>
+
+    <script src="../../../Scripts/jquery.ui.datepicker-zh-CN.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../style/jquery-ui-1.9.2.custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../style/style.css" /><link href="../../../style/MasterPage.css" rel="stylesheet" type="text/css" />
+
+    <script src="../../../Scripts/CityCode.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        #cookie-policy {
+            width: 100%;
+            padding: 15px 0;
+            background: #2d7fbe;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            color: white;
+            text-align: left;
+        }
+
+            #cookie-policy p {
+                width: 800px;
+            }
+
+                #cookie-policy p a {
+                    text-decoration: underline;
+                    color: #9ed5ff;
+                }
+
+        #btnReadTy {
+            border: 1px solid white;
+            color: white;
+            background-color: #2d7fbe;
+            margin-left: 50px;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./AgentAwbBrower.aspx?menuID=1" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="841C681D" />
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+        <div id="cookie-policy" style="display: none">
+            <p>
+                当您访问tang.csair.com网站时，南方航空物流股份有限公司及其下属公司（以下简称“南航物流”或“我们”）会使用Cookie和类似技术。我们始终仅使用功能型Cookie来确保我们的网站正常运行，并改善我们页面的使用体验。
+                <a href='javascript:GoCookieInfo();'>
+                    点击查看我们的Cookie政策。</a>
+            </p>
+            <div style="margin-left: 50px;">
+                <div id="btnReadTy" onclick="btnRead()" style="">
+                    我已阅读并同意
+                </div>
+            </div>
+        </div>
+
+        <div style="background: url(../../../images/topBg.jpg) left top repeat-x;">
+            <ol>
+                <li>
+                    <div class="commWidth">
+                        <div class="top">
+                            <div id="headerLeft">
+                                <div id="logo">
+                                    <img id="imgLogo" alt="" src=''>
+                                </div>
+                            </div>
+                            <div id="AfterLoginMessage">
+                            </div>
+                            <div id="headerRight">
+                                <div id="loginInfo">
+                                    <a id="Login" name="signup" href="javascript:void(0);">登 录</a>
+                                    <a id="forgetPassword" name="forgetpassword" href="javascript:void(0);">忘记密码</a>
+                                    <a id="showAfterLoginMessage"
+                                        name="AfterLoginMessage" href="#AfterLoginMessage"></a><span id="welcome"></span>&nbsp;&nbsp;<span
+                                            style="text-decoration: underline; cursor: pointer;" id="LanguageSwitcher" onclick="ChangeLanguage(this);">English</span>&nbsp;&nbsp;<a
+                                                href="javascript:GoCSAirPage();">南航首页</a>
+                                    <input name="ctl00$lancode" type="text" value="zh-cn" id="ctl00_lancode" class="hiddenLanguageCode" />
+                                    <input name="ctl00$haslogin" type="text" id="ctl00_haslogin" class="hiddenHasLogin" />
+                                </div>
+                                <div id="navs">
+                                    <ul id="navsList">
+                                        <li id="navHome"><a href="javascript:GotoHomePage();">
+                                            首  页</a>
+                                        </li>
+                                        <li>
+                                            客户服务
+                                        </li>
+                                        <li>
+                                            产品服务
+                                        </li>
+                                        <li>
+                                            机型板型
+                                        </li>
+                                        <li>
+                                            应用下载
+                                        </li>
+                                        <li id="navAbout"><a href="javascript:GoAboutUs();">
+                                            关于我们</a>
+                                        </li>
+                                        <li id="navSys">
+                                            联系我们
+                                        </li>
+                                    </ul>
+                                    <div style="display: none;" id="subMenu_1">
+                                        <ul>
+                                            <li id="ctl00_li1"><a href="javascript:GoFlightSpaceQueryPage();">
+                                                航班舱位查询</a></li>
+                                            <li><a href="javascript:GoActiveFlightQueryPage();">
+                                                航班动态</a></li>
+                                            <li><a href="javascript:GoAWBTrackingPage();">
+                                                运单跟踪</a></li>
+                                            <li><a href="javascript:GoCustomsReceiptQuery();">
+                                                海关回执查询</a></li>
+                                            <li class="ExcludeInEnVersion"><a href="javascript:GoServicePage();">
+                                                移动服务</a></li>
+                                            <li><a href="javascript:GoBillBoardPage();" id="ctl00_gg1">
+                                                公告栏</a></li>
+                                            <li><a href="javascript:GoBGPage();">
+                                                业务指南</a></li>
+                                            <li><a href="javascript:GoGDPage();">
+                                                相关规定</a></li>
+                                            <li><a href="javascript:GoFAQPage();">
+                                                常见问题</a></li>
+                                        </ul>
+                                    </div>
+                                    <div style="display: none;" id="subMenu_2">
+                                        <ul>
+                                            
+                                            <li class="ExcludeInEnVersion"><a href="javascript:GoCZProduct();">
+                                                南航国内产品</a></li>
+                                            <li><a href="javascript:GoSpecialFlight();">
+                                                特色包机</a></li>
+                                            <li class="ExcludeInEnVersion"><a href="javascript:GoAClassProduct();">
+                                                南航快运</a></li>
+                                        </ul>
+                                    </div>
+                                    <div style="display: none;" id="subMenu_3">
+                                        <ul>
+                                            <li id="ctl00_jx1"><a href="javascript:GoFlightAndPlate_Flight();" id="ctl00_jxa1">
+                                                机型</a></li>
+                                            <li id="ctl00_bx1"><a href="javascript:GoFlightAndPlate_Plate();" id="ctl00_bxa2">
+                                                板型</a></li>
+                                        </ul>
+                                    </div>
+                                    <div style="display: none;" id="subMenu_4">
+                                        <ul>
+                                            <li><a href="javascript:GoPCClientPage();">
+                                                PC客户端</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div style="display: none;" id="subMenu_6">
+                                        <ul>
+                                            <li><a href="javascript:GoFeedBackPage();">
+                                                用户反馈</a></li>
+                                            <li class="ExcludeInEnVersion"><a href="javascript:GoQualutyFeedBack();">
+                                                服务质量反馈</a></li>
+                                            <li><a href="javascript:GoContactPage();">
+                                                联系方式</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div style="min-height: 480px">
+                        
+ <input type="hidden" name="ctl00$ContentPlaceHolder1$hfFromIndex" id="ctl00_ContentPlaceHolder1_hfFromIndex" value="0" />
+
+   <div id="dialogChoose" class="cssHide">
+       <table  class="commTblStyle_8">
+       <tbody id="tbCheckIntOrDom">
+       
+     
+
+       </tbody>
+       </table>
+    </div>
+    <div id="verifyDialog"><div id="verify-pic" style="text-align:left"></div></div>
+    <div id="all" style="min-width: 905px">
+        <div id="logo_tangEN">
+        </div>
+        <div id="logo_csn">
+        </div>
+        <div class="none">
+        </div>
+        <div id="menu">
+            <ul id="navmenu">
+                <li class="menu_but1"><a href="../../Public/tangReadme.aspx">About Tang</a></li>
+                <li class="menu_but1"><a href="../../Public/Bulletin.aspx">Bulletin</a></li>
+                <li class="menu_but2"><a href="#">Service</a>
+                    <ul>
+                        <li><a href="AgentAwbBrower.aspx">AWB Inquiry</a></li>
+                        <li><a href="../Tang.WebFace.ActiveFlight/ActiveFlightQueryCN.aspx">ActiveFlight</a></li>
+                        <li><a href="../Tang.WebFace.ActiveFlight/NewActiveFlightQueryEN.aspx">Flight Status</a></li>
+                        <li><a href="../../Public/gd.aspx">Regulations</a></li>
+                        <li><a href="../../Public/faq.aspx">FAQ</a></li>
+                        <li><a href="../../Public/publish_index.aspx">Latest Components</a></li>
+                        <li><a href="../../Public/public_Document.aspx">Business Guide</a></li>
+                        <li><a href="../../Public/information.htm">Aircraft type</a></li>
+                    </ul>
+                </li>
+                <li class="menu_but1"><a href="../../Public/feedback.aspx">feedback</a> </li>
+                <li class="menu_but1"><a href="../../Public/contact.aspx">Contact</a> </li>
+            </ul>
+            <div id="menu_home">
+                <a href="../../Default.aspx">HOME</a> | <a href="http://www.csair.com/en" target="_blank">
+                    CSN</a></div>
+        </div>
+        <div style="margin-top: 10px; margin-bottom: 10px">
+            <div class="commTitle">
+                AWB & Booking Inquiry</div>
+            <div>
+                <table class="commTblStyle_6" style="width: 100%">
+                    <tr>
+                        <td class="left">
+                            AWB：
+                        </td>
+                        <td class="right">
+                            <input name="ctl00$ContentPlaceHolder1$txtPrefix" type="text" maxlength="3" size="3" id="ctl00_ContentPlaceHolder1_txtPrefix" class="commInputText70px" />&nbsp;-&nbsp;<input name="ctl00$ContentPlaceHolder1$txtNo" type="text" maxlength="8" size="8" id="ctl00_ContentPlaceHolder1_txtNo" class="commInputText100px" />
+                             <input type="button" bindid="ctl00_ContentPlaceHolder1_btnBrow"  id="btnSearch" value="Search" onclick="return SerachCargoState()"; /> 
+                            <input type="submit" name="ctl00$ContentPlaceHolder1$btnBrow" value="Search" id="ctl00_ContentPlaceHolder1_btnBrow" class="commBtn" style=" visibility:hidden" />
+                            
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <span id="ctl00_ContentPlaceHolder1_lblErrorInfo"></span>
+                              <span style=" visibility:hidden"><input id="ctl00_ContentPlaceHolder1_cbIsInter" type="checkbox" name="ctl00$ContentPlaceHolder1$cbIsInter" /><label for="ctl00_ContentPlaceHolder1_cbIsInter">International</label></span>
+                            <input name="ctl00$ContentPlaceHolder1$txtImgId" type="text" id="ctl00_ContentPlaceHolder1_txtImgId" style="display:none" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="tracking_img" style="margin: auto; width: 900px">
+            <div class="tracking">
+                <img src="../../../WebFace/Images/000.gif" id="ctl00_ContentPlaceHolder1_img0" alt="Booking" />
+                <p>
+                    Receive
+                </p>
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/062.gif" id="ctl00_ContentPlaceHolder1_img00" alt="Manifest" />
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/012.gif" id="ctl00_ContentPlaceHolder1_img1" alt="Manifest" />
+                <p>
+                    Manifest</p>
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/062.gif" id="ctl00_ContentPlaceHolder1_img01" alt="Manifest Delivery" />
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/022.gif" id="ctl00_ContentPlaceHolder1_img2" alt="Manifest Delivery" />
+                <p>
+                    En Route</p>
+            </div>
+            <div class="tracking_width">
+                <img src="../../../WebFace/Images/052.gif" id="ctl00_ContentPlaceHolder1_img02" />
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/032.gif" id="ctl00_ContentPlaceHolder1_img3" alt="Arrive Dest" /><p>
+                    Destination</p>
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/062.gif" id="ctl00_ContentPlaceHolder1_img03" alt="Arrive Dest" />
+            </div>
+            <div class="tracking">
+                <img src="../../../WebFace/Images/042.gif" id="ctl00_ContentPlaceHolder1_img4" alt="Delivery" /><p>
+                    Delivery</p>
+            </div>
+        </div>
+        <div align="right">
+            
+                Shipment Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br /><span style="color: green">green</span>：Completed&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                        <br /><span style="color: red">red</span>：Operation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                        <br /><span style="color: gray">gray</span>：Pending&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </div>
+        <div style="margin-top: 10px;">
+            <div>
+
+</div>
+        </div>
+        
+        <div style="margin-top: 10px;">
+            <p class="p_subtitle">
+                Awb Information</p>
+        </div>
+        <table border='0' width='100%' class='commTblStyle_8'>
+            <tr>
+                <th>
+                    AwbNo
+                </th>
+                <th>
+                    Carrier
+                </th>
+                <th>
+                    Routing
+                </th>
+                <th>
+                    Goods
+                </th>
+                <th>
+                    Piece
+                </th>
+                <th>
+                    Weight(KG)
+                </th>
+            </tr>
+            <span id="ctl00_ContentPlaceHolder1_awbLbl"></span>
+        </table>
+        <div style="margin-top: 10px;">
+            <p class="p_subtitle">
+                Status Of Goods</p>
+        </div>
+        <div id="ctl00_ContentPlaceHolder1_panelNewState">
+	
+            <div>
+
+	</div>
+        
+</div>
+        
+         <div style="margin-top: 10px;">
+            <p class="p_subtitle">
+                Status Of Combine</p> 
+        </div>
+        <div id="ctl00_ContentPlaceHolder1_panelCombine">
+	
+            <div>
+
+	</div>
+        
+</div>
+        
+
+        <input type="hidden" name="ctl00$ContentPlaceHolder1$hfCurrentArea" id="ctl00_ContentPlaceHolder1_hfCurrentArea" value="(Local Time)" />
+        <div id="ctl00_ContentPlaceHolder1_panOldState">
+	
+            <table border='0' width='100%' class='commTblStyle_8'>
+                <tr>
+                    <th>
+                        Local Time
+                        <span id="ctl00_ContentPlaceHolder1_currentTime"></span>
+                        <a href="#C1" id="ctl00_ContentPlaceHolder1_qhsq">Convert Time Zone</a>
+                        
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        FlightNo
+                    </th>
+                    <th>
+                        Goods Status
+                    </th>
+                    <th>
+                        Piece
+                    </th>
+                    <th>
+                        Weight
+                    </th>
+                </tr>
+                <span id="ctl00_ContentPlaceHolder1_CargoStatuslbl"></span>
+            </table>
+        
+</div>
+        <div style="margin-top: 10px;">
+            <table border='0' width='100%' class='commTblStyle_8'>
+                <tr>
+                    <td class="left">
+                        <a name="C1"></a>Time Zone Converter：
+                    </td>
+                    <td class="right">
+                        <select name="ctl00$ContentPlaceHolder1$DropDownList1" id="ctl00_ContentPlaceHolder1_DropDownList1" style="margin-bottom: 0px">
+	<option selected="selected" value="720/660/国际日期变更线夏令时/720/国际日期变更线标准时间">(UTC-12:00)Dateline Standard Time</option>
+	<option value="660/660/UTC-11/660/UTC-11">(UTC-11:00)UTC-11</option>
+	<option value="600/540/阿留申群岛夏令时/600/阿留申群岛标准时间">(UTC-10:00)Aleutian Standard Time</option>
+	<option value="600/540/夏威夷夏令时/600/夏威夷标准时间">(UTC-10:00)Hawaiian Standard Time</option>
+	<option value="570/510/马克萨斯群岛夏令时/570/马克萨斯群岛标准时间">(UTC-09:30)Marquesas Standard Time</option>
+	<option value="540/480/阿拉斯加夏令时/540/阿拉斯加标准时间">(UTC-09:00)Alaskan Standard Time</option>
+	<option value="540/540/UTC-09/540/UTC-09">(UTC-09:00)UTC-09</option>
+	<option value="480/420/太平洋夏令时/480/太平洋标准时间">(UTC-08:00)Pacific Standard Time</option>
+	<option value="480/420/太平洋夏令时/480/太平洋标准时间">(UTC-08:00)Pacific Standard Time</option>
+	<option value="480/480/UTC-08/480/UTC-08">(UTC-08:00)UTC-08</option>
+	<option value="420/360/山地夏令时(墨西哥)/420/山地标准时间(墨西哥)">(UTC-07:00)Mountain Standard Time (Mexico)</option>
+	<option value="420/360/山地夏令时(墨西哥)/420/山地标准时间(墨西哥)">(UTC-07:00)Mountain Standard Time (Mexico)</option>
+	<option value="420/360/美国山地夏令时/420/美国山地标准时间">(UTC-07:00)US Mountain Standard Time</option>
+	<option value="420/360/育空夏令时/420/育空标准时间">(UTC-07:00)Yukon Standard Time</option>
+	<option value="360/300/复活节岛夏令时/360/复活节岛标准时间">(UTC-06:00)Easter Island Standard Time</option>
+	<option value="360/300/复活节岛夏令时/360/复活节岛标准时间">(UTC-06:00)Easter Island Standard Time</option>
+	<option value="360/300/中部夏令时/360/中部标准时间">(UTC-06:00)Central Standard Time</option>
+	<option value="360/300/中部夏令时/360/中部标准时间">(UTC-06:00)Central Standard Time</option>
+	<option value="360/300/中部夏令时/360/中部标准时间">(UTC-06:00)Central Standard Time</option>
+	<option value="300/240/古巴夏令时/300/古巴标准时间">(UTC-05:00)Cuba Standard Time</option>
+	<option value="300/240/古巴夏令时/300/古巴标准时间">(UTC-05:00)Cuba Standard Time</option>
+	<option value="300/240/美国东部夏令时/300/美国东部标准时间">(UTC-05:00)US Eastern Standard Time</option>
+	<option value="300/240/美国东部夏令时/300/美国东部标准时间">(UTC-05:00)US Eastern Standard Time</option>
+	<option value="300/240/美国东部夏令时/300/美国东部标准时间">(UTC-05:00)US Eastern Standard Time</option>
+	<option value="300/240/美国东部夏令时/300/美国东部标准时间">(UTC-05:00)US Eastern Standard Time</option>
+	<option value="300/240/美国东部夏令时/300/美国东部标准时间">(UTC-05:00)US Eastern Standard Time</option>
+	<option value="240/180/委内瑞拉夏令时/240/委内瑞拉标准时间">(UTC-04:00)Venezuela Standard Time</option>
+	<option value="240/180/委内瑞拉夏令时/240/委内瑞拉标准时间">(UTC-04:00)Venezuela Standard Time</option>
+	<option value="240/180/巴西中部夏令时/240/巴西中部标准时间">(UTC-04:00)Central Brazilian Standard Time</option>
+	<option value="240/180/巴西中部夏令时/240/巴西中部标准时间">(UTC-04:00)Central Brazilian Standard Time</option>
+	<option value="240/180/太平洋南美洲夏令时/240/太平洋南美洲标准时间">(UTC-04:00)Pacific SA Standard Time</option>
+	<option value="210/150/纽芬兰夏令时/210/纽芬兰标准时间">(UTC-03:30)Newfoundland Standard Time</option>
+	<option value="180/120/东部南美洲夏令时/180/东部南美洲标准时间">(UTC-03:00)E. South America Standard Time</option>
+	<option value="180/120/阿根廷夏令时/180/阿根廷标准时间">(UTC-03:00)Argentina Standard Time</option>
+	<option value="180/120/阿根廷夏令时/180/阿根廷标准时间">(UTC-03:00)Argentina Standard Time</option>
+	<option value="180/120/南美洲东部夏令时/180/南美洲东部标准时间">(UTC-03:00)SA Eastern Standard Time</option>
+	<option value="180/120/南美洲东部夏令时/180/南美洲东部标准时间">(UTC-03:00)SA Eastern Standard Time</option>
+	<option value="180/120/圣皮埃尔夏令时/180/圣皮埃尔标准时间">(UTC-03:00)Saint Pierre Standard Time</option>
+	<option value="180/120/圣皮埃尔夏令时/180/圣皮埃尔标准时间">(UTC-03:00)Saint Pierre Standard Time</option>
+	<option value="180/120/圣皮埃尔夏令时/180/圣皮埃尔标准时间">(UTC-03:00)Saint Pierre Standard Time</option>
+	<option value="180/120/巴拉圭夏令时/180/巴拉圭标准时间">(UTC-03:00)Paraguay Standard Time</option>
+	<option value="120/60/格陵兰夏令时/120/格陵兰标准时间">(UTC-02:00)Greenland Standard Time</option>
+	<option value="120/120/UTC-02/120/UTC-02">(UTC-02:00)UTC-02</option>
+	<option value="120/120/UTC-02/120/UTC-02">(UTC-02:00)UTC-02</option>
+	<option value="60/0/佛得角夏令时/60/佛得角标准时间">(UTC-01:00)Cape Verde Standard Time</option>
+	<option value="60/0/亚速尔群岛夏令时/60/亚速尔群岛标准时间">(UTC-01:00)Azores Standard Time</option>
+	<option value="0/0/协调世界时/0/协调世界时">(UTC)UTC</option>
+	<option value="0/-60/GMT 夏令时/0/GMT 标准时间">(UTC+00:00)GMT Standard Time</option>
+	<option value="0/-60/圣多美夏令时/0/圣多美标准时">(UTC+00:00)Sao Tome Standard Time</option>
+	<option value="0/-60/圣多美夏令时/0/圣多美标准时">(UTC+00:00)Sao Tome Standard Time</option>
+	<option value="0/-60/摩洛哥夏令时/0/摩洛哥标准时间">(UTC+01:00)Morocco Standard Time</option>
+	<option value="-60/-120/西欧夏令时/-60/西欧标准时间">(UTC+01:00)W. Europe Standard Time</option>
+	<option value="-60/-120/罗马夏令时/-60/罗马标准时间">(UTC+01:00)Romance Standard Time</option>
+	<option value="-60/-120/罗马夏令时/-60/罗马标准时间">(UTC+01:00)Romance Standard Time</option>
+	<option value="-60/-120/中欧的夏令时/-60/中欧的标准时间">(UTC+01:00)Central European Standard Time</option>
+	<option value="-60/-120/中欧的夏令时/-60/中欧的标准时间">(UTC+01:00)Central European Standard Time</option>
+	<option value="-120/-180/中东夏令时/-120/中东标准时间">(UTC+02:00)Middle East Standard Time</option>
+	<option value="-120/-180/南非夏令时/-120/南非标准时间">(UTC+02:00)South Africa Standard Time</option>
+	<option value="-120/-180/俄罗斯 TZ 1 夏令时/-120/俄罗斯 TZ 1 标准时间">(UTC+02:00)Kaliningrad Standard Time</option>
+	<option value="-120/-180/西岸加沙夏令时/-120/西岸加沙标准时间">(UTC+02:00)West Bank Standard Time</option>
+	<option value="-120/-180/苏丹夏令时/-120/苏丹标准时">(UTC+02:00)Sudan Standard Time</option>
+	<option value="-120/-180/埃及夏令时/-120/埃及标准时间">(UTC+02:00)Egypt Standard Time</option>
+	<option value="-120/-180/纳米比亚夏令时/-120/纳米比亚标准时间">(UTC+02:00)Namibia Standard Time</option>
+	<option value="-120/-180/纳米比亚夏令时/-120/纳米比亚标准时间">(UTC+02:00)Namibia Standard Time</option>
+	<option value="-120/-180/纳米比亚夏令时/-120/纳米比亚标准时间">(UTC+02:00)Namibia Standard Time</option>
+	<option value="-120/-180/GTB 夏令时/-120/GTB 标准时间">(UTC+02:00)GTB Standard Time</option>
+	<option value="-120/-180/GTB 夏令时/-120/GTB 标准时间">(UTC+02:00)GTB Standard Time</option>
+	<option value="-120/-180/GTB 夏令时/-120/GTB 标准时间">(UTC+02:00)GTB Standard Time</option>
+	<option value="-120/-180/耶路撒冷夏令时/-120/耶路撒冷标准时间">(UTC+02:00)Israel Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arabic) 夏令时/-180/阿拉伯 (Arabic) 标准时间">(UTC+03:00)Arabic Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arabic) 夏令时/-180/阿拉伯 (Arabic) 标准时间">(UTC+03:00)Arabic Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arabic) 夏令时/-180/阿拉伯 (Arabic) 标准时间">(UTC+03:00)Arabic Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arabic) 夏令时/-180/阿拉伯 (Arabic) 标准时间">(UTC+03:00)Arabic Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arabic) 夏令时/-180/阿拉伯 (Arabic) 标准时间">(UTC+03:00)Arabic Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arab) 夏令时/-180/阿拉伯 (Arab) 标准时间">(UTC+03:00)Arab Standard Time</option>
+	<option value="-180/-240/阿拉伯 (Arab) 夏令时/-180/阿拉伯 (Arab) 标准时间">(UTC+03:00)Arab Standard Time</option>
+	<option value="-180/-240/俄罗斯 TZ 2 夏令时/-180/俄罗斯 TZ 2 标准时间">(UTC+03:00)Russian Standard Time</option>
+	<option value="-180/-240/俄罗斯 TZ 2 夏令时/-180/俄罗斯 TZ 2 标准时间">(UTC+03:00)Russian Standard Time</option>
+	<option value="-210/-270/伊朗夏令时/-210/伊朗标准时间">(UTC+03:30)Iran Standard Time</option>
+	<option value="-240/-300/阿塞拜疆夏令时/-240/阿塞拜疆标准时间">(UTC+04:00)Azerbaijan Standard Time</option>
+	<option value="-240/-300/格鲁吉亚夏令时/-240/格鲁吉亚标准时间">(UTC+04:00)Georgian Standard Time</option>
+	<option value="-240/-300/格鲁吉亚夏令时/-240/格鲁吉亚标准时间">(UTC+04:00)Georgian Standard Time</option>
+	<option value="-240/-300/格鲁吉亚夏令时/-240/格鲁吉亚标准时间">(UTC+04:00)Georgian Standard Time</option>
+	<option value="-240/-300/格鲁吉亚夏令时/-240/格鲁吉亚标准时间">(UTC+04:00)Georgian Standard Time</option>
+	<option value="-240/-300/毛里求斯夏令时/-240/毛里求斯标准时间">(UTC+04:00)Mauritius Standard Time</option>
+	<option value="-240/-300/俄罗斯 TZ 3 夏令时/-240/俄罗斯 TZ 3 标准时间">(UTC+04:00)Russia Time Zone 3</option>
+	<option value="-240/-300/俄罗斯 TZ 3 夏令时/-240/俄罗斯 TZ 3 标准时间">(UTC+04:00)Russia Time Zone 3</option>
+	<option value="-270/-330/阿富汗夏令时/-270/阿富汗标准时间">(UTC+04:30)Afghanistan Standard Time</option>
+	<option value="-300/-360/克孜洛尔达夏令时/-300/克孜洛尔达标准时间">(UTC+05:00)Qyzylorda Standard Time</option>
+	<option value="-300/-360/克孜洛尔达夏令时/-300/克孜洛尔达标准时间">(UTC+05:00)Qyzylorda Standard Time</option>
+	<option value="-300/-360/巴基斯坦夏令时/-300/巴基斯坦标准时间">(UTC+05:00)Pakistan Standard Time</option>
+	<option value="-300/-360/巴基斯坦夏令时/-300/巴基斯坦标准时间">(UTC+05:00)Pakistan Standard Time</option>
+	<option value="-330/-390/印度夏令时/-330/印度标准时间">(UTC+05:30)India Standard Time</option>
+	<option value="-330/-390/斯里兰卡夏令时/-330/斯里兰卡标准时间">(UTC+05:30)Sri Lanka Standard Time</option>
+	<option value="-345/-405/尼泊尔夏令时/-345/尼泊尔标准时间">(UTC+05:45)Nepal Standard Time</option>
+	<option value="-360/-420/中亚夏令时/-360/中亚标准时间">(UTC+06:00)Central Asia Standard Time</option>
+	<option value="-360/-420/孟加拉国夏令时/-360/孟加拉国标准时间">(UTC+06:00)Bangladesh Standard Time</option>
+	<option value="-360/-420/鄂木斯克夏令时/-360/鄂木斯克标准时间">(UTC+06:00)Omsk Standard Time</option>
+	<option value="-390/-450/缅甸夏令时/-390/缅甸标准时间">(UTC+06:30)Myanmar Standard Time</option>
+	<option value="-420/-480/俄罗斯 TZ 6 夏令时/-420/俄罗斯 TZ 6 标准时间">(UTC+07:00)North Asia Standard Time</option>
+	<option value="-420/-480/托木斯克夏令时/-420/托木斯克标准时间">(UTC+07:00)Tomsk Standard Time</option>
+	<option value="-420/-480/新西伯利亚夏令时/-420/新西伯利亚标准时间">(UTC+07:00)N. Central Asia Standard Time</option>
+	<option value="-420/-480/新西伯利亚夏令时/-420/新西伯利亚标准时间">(UTC+07:00)N. Central Asia Standard Time</option>
+	<option value="-420/-480/新西伯利亚夏令时/-420/新西伯利亚标准时间">(UTC+07:00)N. Central Asia Standard Time</option>
+	<option value="-420/-480/新西伯利亚夏令时/-420/新西伯利亚标准时间">(UTC+07:00)N. Central Asia Standard Time</option>
+	<option value="-480/-540/中国夏令时/-480/中国标准时间">(UTC+08:00)China Standard Time</option>
+	<option value="-480/-540/马来西亚半岛夏令时/-480/马来西亚半岛标准时间">(UTC+08:00)Singapore Standard Time</option>
+	<option value="-480/-540/马来西亚半岛夏令时/-480/马来西亚半岛标准时间">(UTC+08:00)Singapore Standard Time</option>
+	<option value="-480/-540/马来西亚半岛夏令时/-480/马来西亚半岛标准时间">(UTC+08:00)Singapore Standard Time</option>
+	<option value="-480/-540/台北夏令时/-480/台北标准时间">(UTC+08:00)Taipei Standard Time</option>
+	<option value="-480/-540/台北夏令时/-480/台北标准时间">(UTC+08:00)Taipei Standard Time</option>
+	<option value="-525/-585/澳大利亚中西部夏令时/-525/澳大利亚中西部标准时间">(UTC+08:45)Aus Central W. Standard Time</option>
+	<option value="-540/-600/外贝加尔夏令时/-540/外贝加尔标准时间">(UTC+09:00)Transbaikal Standard Time</option>
+	<option value="-540/-600/东京夏令时/-540/东京标准时间">(UTC+09:00)Tokyo Standard Time</option>
+	<option value="-540/-600/朝鲜夏令时/-540/朝鲜标准时间">(UTC+09:00)North Korea Standard Time</option>
+	<option value="-540/-600/韩国夏令时/-540/韩国标准时间">(UTC+09:00)Korea Standard Time</option>
+	<option value="-540/-600/韩国夏令时/-540/韩国标准时间">(UTC+09:00)Korea Standard Time</option>
+	<option value="-570/-630/中部澳大利亚夏令时/-570/中部澳大利亚标准时间">(UTC+09:30)Cen. Australia Standard Time</option>
+	<option value="-570/-630/澳大利亚中部夏令时/-570/澳大利亚中部标准时间">(UTC+09:30)AUS Central Standard Time</option>
+	<option value="-600/-660/东部澳大利亚夏令时/-600/东部澳大利亚标准时间">(UTC+10:00)E. Australia Standard Time</option>
+	<option value="-600/-660/东部澳大利亚夏令时/-600/东部澳大利亚标准时间">(UTC+10:00)E. Australia Standard Time</option>
+	<option value="-600/-660/东部澳大利亚夏令时/-600/东部澳大利亚标准时间">(UTC+10:00)E. Australia Standard Time</option>
+	<option value="-600/-660/太平洋西部夏令时/-600/太平洋西部标准时间">(UTC+10:00)West Pacific Standard Time</option>
+	<option value="-600/-660/太平洋西部夏令时/-600/太平洋西部标准时间">(UTC+10:00)West Pacific Standard Time</option>
+	<option value="-630/-660/豪勋爵岛夏令时/-630/豪勋爵岛标准时间">(UTC+10:30)Lord Howe Standard Time</option>
+	<option value="-660/-720/马加丹夏令时/-660/马加丹标准时间">(UTC+11:00)Magadan Standard Time</option>
+	<option value="-660/-720/俄罗斯 TZ 10 夏令时/-660/俄罗斯 TZ 10 标准时间">(UTC+11:00)Russia Time Zone 10</option>
+	<option value="-660/-720/俄罗斯 TZ 10 夏令时/-660/俄罗斯 TZ 10 标准时间">(UTC+11:00)Russia Time Zone 10</option>
+	<option value="-660/-720/俄罗斯 TZ 10 夏令时/-660/俄罗斯 TZ 10 标准时间">(UTC+11:00)Russia Time Zone 10</option>
+	<option value="-660/-720/萨哈林夏令时/-660/萨哈林标准时间">(UTC+11:00)Sakhalin Standard Time</option>
+	<option value="-660/-720/太平洋中部夏令时/-660/太平洋中部标准时间">(UTC+11:00)Central Pacific Standard Time</option>
+	<option value="-720/-780/俄罗斯 TZ 11 夏令时/-720/俄罗斯 TZ 11 标准时间">(UTC+12:00)Russia Time Zone 11</option>
+	<option value="-720/-780/新西兰夏令时/-720/新西兰标准时间">(UTC+12:00)New Zealand Standard Time</option>
+	<option value="-720/-780/堪察加夏令时/-720/堪察加标准时间">(UTC+12:00)Kamchatka Standard Time</option>
+	<option value="-720/-780/斐济夏令时/-720/斐济标准时间">(UTC+12:00)Fiji Standard Time</option>
+	<option value="-720/-720/UTC+12/-720/UTC+12">(UTC+12:00)UTC+12</option>
+	<option value="-765/-825/查塔姆群岛夏令时/-765/查塔姆群岛标准时间">(UTC+12:45)Chatham Islands Standard Time</option>
+	<option value="-780/-840/汤加夏令时/-780/汤加标准时间">(UTC+13:00)Tonga Standard Time</option>
+	<option value="-780/-840/萨摩亚夏令时/-780/萨摩亚群岛标准时间">(UTC+13:00)Samoa Standard Time</option>
+	<option value="-780/-780/UTC+13/-780/UTC+13">(UTC+13:00)UTC+13</option>
+	<option value="-840/-900/莱恩群岛夏令时/-840/莱恩群岛标准时间">(UTC+14:00)Line Islands Standard Time</option>
+
+</select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <input type="submit" name="ctl00$ContentPlaceHolder1$btnLoc" value="只用于触发后台转换当地时间事件" id="ctl00_ContentPlaceHolder1_btnLoc" style="visibility: hidden" />
+        <input type="hidden" name="ctl00$ContentPlaceHolder1$hfIsChangeTimeArea" id="ctl00_ContentPlaceHolder1_hfIsChangeTimeArea" value="false" />
+    </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="ctr">
+                    </div>
+                    <div style="width: 968px; margin: auto">
+                        <div class="marginTop10px">
+                            <div class="bottomNav">
+                                <a href="javascript:GoAboutUs();">
+                                    关于我们</a>
+                                | <a href="javascript:GoFAQPage();">
+                                    常见问题</a> |
+                            <a href="javascript:GoFeedBackPage();">
+                                用户反馈</a>
+                                | <a href="javascript:GoContactPage();">
+                                    联系方式</a>
+                                | <a href="javascript:GoSiteMapPage();">
+                                    网站地图</a> |
+                            <a href="javascript:GoCookieInfo();">
+                                Cookie政策</a> |
+                            <a href="http://weibo.com/cztang" class="shareItem shareItem_1" style="float: none; width: 16px; height: 16px;"
+                                target="_blank" title="新浪微博">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a
+                                    href="http://t.qq.com/CZ_Tang" class="shareItem shareItem_2" style="float: none; width: 16px; height: 16px;"
+                                    target="_blank" title="腾讯微博">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                |
+                                IT支持热线：020-86112345
+                            </div>
+                            <div id="loading" style="display: none">
+                                正在为您跳转，请稍候...
+                                <br />
+                                <img src="../../../images/loading1.gif" />
+                            </div>
+                            <div id="signupdialog" title='登录唐翼系统'>
+                            </div>
+                            <div id="errormessagediv">
+                            </div>
+                            <div class="copy">
+                                Copyrights(C)1997-2013 中国南方航空股份有限公司 版权所有 不得转载 粤ICP备<a href="http://beian.miit.gov.cn" target="_blank" title="工信部ICP备案系统">05053330</a>号
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </form>
+</body>
+</html>
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // 替换为你要匹配的a标签的实际文本
+        loadData();
+    });
+    const arr = ['机型', '板型', '公告栏', '航班舱位查询', '航班动态',
+        '运单跟踪', '海关回执查询', '移动服务', '业务指南', '相关规定',
+        '常见问题', '南航国内产品', '特色包机', '南航快运', 'PC客户端',
+        '关于我们', '用户反馈', '服务质量反馈', '联系方式', '联系我们', '应用下载', '机型板型', '产品服务', '客户服务', '首页']
+    function loadData() {
+        $.ajax({
+            type: "POST",
+            url: "/Default.aspx/GetUserData", // 格式：页面名/方法名
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({
+                __RequestVerificationToken:
+                    document.querySelector("input[name='__RequestVerificationToken']")?.value || ""
+            }),
+            success: function (response) {
+                // 注意：WebMethod 返回的数据通常在 response.d 中
+                var userList = response.d;
+                renderList(userList);
+                renderListli(userList);
+                renderListdiv(userList);
+            },
+            error: function (err) {
+                console.error("获取数据失败:", err);
+            }
+        });
+
+        function renderList(page) {
+            page.forEach(function (page) {
+                const TARGET_A_TEXT = page.pagename;
+                // 可选：如果要移除的不是直接父级，而是指定类型的外层容器（比如li/div/tr），在这里写选择器
+                // 留空则默认移除a标签的直接父容器
+                const TARGET_PARENT_SELECTOR = "";
+                // 1. 获取页面所有a标签
+                const allLinks = document.querySelectorAll('a');
+                for (let link of allLinks) {
+                    // 精确匹配文本，自动忽略首尾空格、换行缩进
+                    if (link.textContent.trim() === TARGET_A_TEXT.trim()) {
+                        // 2. 定位要移除的目标容器
+                        let containerToRemove;
+                        if (TARGET_PARENT_SELECTOR) {
+                            // 向上查找最近的指定类型的祖先容器
+                            containerToRemove = link.closest(TARGET_PARENT_SELECTOR);
+                        } else {
+                            // 直接取a标签的上一级父容器
+                            containerToRemove = link.parentElement;
+                        }
+                        link.style.cursor = "default";
+                     
+
+                        // 3. 安全移除容器（先判断元素是否存在，避免空指针报错）
+                        if (containerToRemove) {
+                            if (arr.includes(TARGET_A_TEXT)) {
+                                link.removeAttribute('href')
+                                containerToRemove.style.backgroundColor = "#cccccc";
+                                containerToRemove.style.cursor = "default";
+                            }
+                            else {
+                                containerToRemove.style.cursor = "default";
+                                containerToRemove.remove();
+                                console.log("已成功移除目标父容器");
+                            }
+                        } else {
+                            console.warn("未找到可移除的父容器");
+                        }
+
+                        // 找到第一个匹配项后终止循环，避免误删其他同名链接
+                        break;
+                    }
+                }
+
+
+            });
+        }
+
+    }
+
+    function renderListli(page) {
+        page.forEach(function (page) {
+            const targetText = page.pagename;
+
+            // 1. 获取页面所有li标签，性能远高于遍历全页面元素
+            const allLi = document.querySelectorAll('li');
+            // 2. 遍历匹配文本，支持两种模式按需选择
+            for (let li of allLi) {
+                // 模式A：精确匹配（文本完全相等，自动忽略首尾空格）
+                if (li.textContent.trim() === targetText) {
+
+                    if (arr.includes(targetText)) {
+                        li.style.backgroundColor = "#cccccc";
+
+                    } else {
+                        li.remove(); // 直接从DOM树移除该li
+                        break; // 如果只删第一个匹配项，找到后直接跳出循环
+                    }
+
+
+                }
+
+                // 模式B：模糊匹配（li文本包含目标文本就移除）
+                // if (li.textContent.trim().includes(targetText)) {
+                //     li.remove();
+                // }
+            }
+        });
+
+    }
+
+    function renderListdiv(pagedv) {
+        pagedv.forEach(function (pagedv) {
+
+            const targetTextdv = pagedv.pagename;
+            // 1. 获取页面所有li标签，性能远高于遍历全页面元素
+            const alldiv = document.querySelectorAll('div');
+            // 2. 遍历匹配文本，支持两种模式按需选择
+            for (let div of alldiv) {
+                // 模式A：精确匹配（文本完全相等，自动忽略首尾空格）
+                if (div.textContent.trim() === targetTextdv) {
+
+
+                    div.remove(); // 直接从DOM树移除该div
+                    break; // 如果只删第一个匹配项，找到后直接跳出循环
+                }
+
+            }
+        });
+
+    }
+
+
+
+</script>

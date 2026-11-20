@@ -1,0 +1,100 @@
+{
+  "carrier": "klm",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "KLM 空运单经 Track-Trace Air Cargo 入口跳转航司官网（含 AFKL myCargo 二次输入）",
+  "entry": {
+    "url": "https://www.track-trace.com/aircargo",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 0
+  },
+  "valueFormats": {
+    "number": "compact"
+  },
+  "popups": [
+    {
+      "css": [
+        "#coiOverlay button",
+        "button:has-text('Accept')",
+        "button:has-text('同意')",
+        "button:has-text('OK')"
+      ],
+      "waitAfter": 800
+    }
+  ],
+  "steps": [
+    { "action": "wait", "ms": 1000 },
+    {
+      "action": "fill",
+      "valueFrom": "number",
+      "locator": {
+        "css": ["#aircargoform input[name='number']"]
+      }
+    },
+    {
+      "action": "click",
+      "locator": {
+        "css": [
+          "#wc-multi-form-button_direct",
+          "#aircargoform input[name='commit']",
+          "#aircargoform button[type='submit']"
+        ]
+      }
+    }
+  ],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": [
+        "Airwaybill",
+        "Air waybill",
+        "Delivered",
+        "Arrived",
+        "Piece(s)",
+        "Track Shipment",
+        "Flight No",
+        "Departs",
+        "Arrives",
+        "Origin",
+        "Destination",
+        "Status",
+        "预计",
+        "出发",
+        "到达",
+        "航程",
+        "货物",
+        "装运",
+        "movement",
+        "shipment"
+      ],
+      "noDataKeywords": ["no result", "not found", "invalid", "未找到", "无结果", "查无"]
+    },
+    "wait": {
+      "timeoutMs": 45000,
+      "intervalMs": 2000
+    }
+  },
+  "flow": {
+    "airlineLabel": "KLM",
+    "afterSubmitSettleMs": 4000,
+    "landingSettleMs": 3000,
+    "carrierList": {
+      "tabText": "Select company",
+      "itemCss": "div.js-link",
+      "settleMs": 5000
+    },
+    "secondStage": {
+      "awbPlaceholders": ["以074", "以057"],
+      "trackButtonText": "追踪",
+      "settleMs": 12000
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "Track-Trace 的 Track direct 按钮会把结果开到新标签页；若落到 AFKL myCargo，需要在页面二次输入 074/057 运单号并点「追踪」。以上流程由适配器处理，选择器/关键词/等待时长全在本配方"
+  }
+}

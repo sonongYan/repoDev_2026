@@ -1,0 +1,212 @@
+{
+  "title": "Shipment Tracking",
+  "url": "https://www.maskargo.com/en/shipment-tracking.html?prefixNumber=232&awbNumber=16749482",
+  "bodyText": "Skip to main content\n\nImportant News: EXTENSION OF FUEL SURCHARGE (FSC) IMPLEMENTATION UNTIL 31 MARCH 2026\n\nImportant News: Fuel Surcharge (MYC) Update for 16 – 31 August 2026\n\nImportant News: MASkargo Freighter Cancellation Statement\n\nImportant News: Update: Continued Suspension of MASkargo Freighter Flights to DOH and AMS\n\nImportant News: Temporary Suspension of Scheduled KUL–DOH–EU Cargo Operations\n\nImportant News: EXTENSION OF FUEL SURCHARGE (FSC) IMPLEMENTATION UNTIL 31 MARCH 2026\n\nImportant News: Fuel Surcharge (MYC) Update for 16 – 31 August 2026\n\nFind out more\nProducts\nServices\nNetwork & Fleet\nAbout Us\nSupport\nImage of banner: alt text\nShipment Tracking\nHome\nShipment Tracking\nPrefix\nPrefix\nAWB Number\nAWB Number\nShipment Tracking\nShipment Details\n()\n()\nShipment Status\nStatus Not Available\nShipment ID\nTotal Package\nPiece(s) | |\nTracking Details\nView Full History\n\nImportance Notices :\n\nFlight schedules are shown in local time zones.\nFor the most accurate tracking, please re-check your shipment status 120 minutes after the actual flight departure, as updates may be subject to operational processing time..\nProducts\nMK General\nMK Pharma\nMK Fresh\nMore\nServices\nMK Transit\nMK Charter\nMK Halal\nMore\nAbout Us\nOur Story\nAward & Achievements\nSustainability\nLoyalty\nMore\nMedia Centre\nSupport\n\nCONNECT WITH US\n\nfacebook\ninstagram\nlinkedin\n\nMABKARGO SDN BHD © Copyright 2026 201501033990 (1159310-T)\n\nLegal\nPrivacy\nCorporate Governance\nGeneral Conditions of Carriage",
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": null,
+      "placeholder": "",
+      "cls": "input w-full",
+      "text": "https://www.maskargo.com/content/mk/en/shipment-tracking.htm"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": "prefixField",
+      "placeholder": "",
+      "cls": "input w-full",
+      "text": "232"
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": null,
+      "name": "awbNumberField",
+      "placeholder": "",
+      "cls": "input w-full",
+      "text": "16749482"
+    }
+  ],
+  "buttons": [
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "p-0 ml-10 md:ml-5 rtl:ml-0 rtl:mr-10 rtl:md:mr-5",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Products"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Services"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Network & Fleet"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "About Us"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "relative rounded-md text-sm max-w-[150px] text-left line-clamp-2",
+      "text": "Support"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-side-interaction >xl:hidden",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-clear rounded-full py-2 m-auto",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-clear rounded-full py-2 m-auto",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "btn-clear rounded-full py-2 m-auto",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "CTAButton flex rounded-5xl justify-center gap-2 styleType-primary sizeType-large w-full mx-auto md:mx-auto w-full",
+      "text": "Shipment Tracking"
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "CTAButton flex rounded-5xl justify-center gap-2 styleType-secondary sizeType-small w-auto mx-auto md:mx-auto",
+      "text": "View Full History"
+    }
+  ],
+  "iframes": [
+    {
+      "src": "",
+      "id": null
+    }
+  ],
+  "xhrs": [
+    {
+      "url": "https://www.maskargo.com/en/shipment-tracking.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"cssClassNames\":\"content-page page basicpage\",\"brandSlug\":\"\",\"componentsResourceTypes\":[\"mh/components/carousel\",\"mh/components/mh-layout-container\",\"mh/components/mh-breadcrumb\",\"mh/components/maskargo/booking/maskargo-shipment-tracking\",\"mh/components/page\",\"wcm/foundation/components/responsivegrid\",\"nt:unstructured\",\"mh/components/page-properties\",\"mh/components/html-component\",\"mh/components/page-structure/maskargo/content-page\",\"mh/components/banner\",\"mh/components/script-executor\"],\"htmlPageItems\":[],\"lastModifiedDate\":1777252695493,\"title\":\"Shipment Tracking\",\"language\":\"en\",\"templateName\":\"mk-content-page-template\",\":type\":\"mh/components/page-structure/maskargo/content-page\",\":items\":{\"root\":{\"columnClassNames\":{\"page_properties\":\"aem-GridColumn aem-GridColumn--default--12\",\"embedded_carousel\":\"aem-GridColumn aem-GridColumn--default--12\",\"responsivegrid\":\"aem-GridColumn aem-GridColumn--default--12\",\"mh_breadcrumb\":\"aem-GridColumn aem-GridColumn--default--12\"},\"gridClassNames\":\"aem-Grid aem-Grid--12 aem-Grid--default--12\",\"columnCount\":12,\":items\":{\"page_properties\":{\"pageProperties\":{\"excludeFromSearch\":false,\"excludeFromGoogleIndex\":false,\"hideFromSitemap\":false,\"useRTLStyle\":false,\"hideBreadcrumbs\":false,\"hideBreadcrumbsDropdown\":false,\"greyScaleTheme\":false,\"enableSchema\":false,\"enableBookingWidget\":false,\"enableStickyCTA\":false,\"turnOffLoadingWindow\":false,\"excludeFromCountryLanguageSelector\":false,\"siteName\":\"maskargo\",\"oneWorldDropDownONDListUrl\":\"/content/dam/mh/flight-search/ow-redeem-flight/ow-ond.json\",\"dropDownONDListUrl\":\"\",\"newDropDownONDListUrl\":\"/bin/mh/revamp/ondLists\",\"fireflyDropDownONDListUrl\":\"/bin/firefly/ondLists\",\"amalDropDownONDListUrl\":\"/bin/amal/ondLists\",\"lowFareApiUrl\":\"/bin/mh/revamp/lowFares\",\"ssoRedirectEncryptApiUrl\":\"/bin/mh/revamp/sso/ssoRedirectEncryptURL\",\"pageTypeAA\":\"homepage\",\"backToTop\":false,\"rootLanguage\":\"en\",\"rootCountry\":\"my\",\"rootCountryName\":\"MASkargo\",\"rootLanguageName\":\"en\",\"hierarchy\":[{\"pageTitle\":\"Home\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/home.html\"},{\"pageTitle\":\"Shipment Tracking\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/shipment-tracking.html\",\"siblings\":[{\"pageTitle\":\"Content Page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/content-page.html\"},{\"pageTitle\":\"Error Pages\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/error-pages.html\"},{\"pageTitle\":\"Article Page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/article-page.html\"},{\"pageTitle\":\"Booking inquiry Iframe page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/booking-inquiry-iframe-page.html\"},{\"pageTitle\":\"Flight schedule Iframe page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/flight-schedule-iframe-page.html\"}]}],\"environment\":\"production\",\"firebaseMH\":{\"apiKey\":\"AIzaSyDm3avtd1ZLRsA0JntACBY64brfdBEA-nM\",\"authDomain\":\"malaysian-airlines-production.firebaseapp.com\",\"databaseURL\":\"https://malaysian-airlines-production.firebaseio.com\",\"projectId\":\"malaysian-airlines-production\",\"storageBucket\":\"malaysian-airlines-production.appspot.com\",\"messagingSenderId\":\"839381817670\",\"appId\":\"1:839381817670:web:27ea79bd907e106ac4ad47\",\"measurementId\":\"G-FH2B5RQET8\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.prod.js\",\"vapidKey\":\"BK-Ud1sDKGvEepkY5rTdoYHK8GkpgTje4PWcMBUpRGNczoXtaHePGNAOq1ClY7TUmMsGqIeXjM_Cu_XzHgPe5mw\"},\"firebaseFirefly\":{\"apiKey\":\"AIzaSyBWN3eECJDpBQ6j22chaYhe5AW4n_XCbiA\",\"authDomain\":\"firefly-mobile-v2.firebaseapp.com\",\"projectId\":\"firefly-mobile-v2\",\"storageBucket\":\"firefly-mobile-v2.appspot.com\",\"messagingSenderId\":\"840252131678\",\"appId\":\"1:840252131678:web:c3d5c2b0ada95a7b22a7cf\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.firefly.prod.js\",\"vapidKey\":\"BDE-7tCWqU-oDKAQF9f6jHsy2SFfvRFEig9FKy4--gDmWM_TwNQ3wJqGRHUHhdyf0pZbpOPr4tj_J9TE2l1hwvA\"},\"campaign\":{\"tokenEndpointURL\":\"https://malaysiaairlines-mkt-prod4-lb.campaign.adobe.com\",\"trackingEndpointURL\":"
+    },
+    {
+      "url": "https://www.maskargo.com/en.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"cssClassNames\":\"root-page page basicpage\",\"brandSlug\":\"\",\"componentsResourceTypes\":[\"mh/components/page-structure/maskargo/root-page\",\"wcm/foundation/components/responsivegrid\",\"nt:unstructured\",\"mh/components/page-properties\"],\"htmlPageItems\":[],\"lastModifiedDate\":1769670398374,\"title\":\"en\",\"language\":\"en\",\"templateName\":\"mk-root-page-template\",\":type\":\"mh/components/page-structure/maskargo/root-page\",\":items\":{\"root\":{\"columnClassNames\":{\"page_properties\":\"aem-GridColumn aem-GridColumn--default--12\",\"responsivegrid\":\"aem-GridColumn aem-GridColumn--default--12\"},\"gridClassNames\":\"aem-Grid aem-Grid--12 aem-Grid--default--12\",\"columnCount\":12,\":items\":{\"page_properties\":{\"pageProperties\":{\"excludeFromSearch\":false,\"excludeFromGoogleIndex\":false,\"hideFromSitemap\":false,\"useRTLStyle\":false,\"hideBreadcrumbs\":false,\"hideBreadcrumbsDropdown\":false,\"greyScaleTheme\":false,\"enableSchema\":false,\"enableBookingWidget\":false,\"enableStickyCTA\":false,\"turnOffLoadingWindow\":false,\"excludeFromCountryLanguageSelector\":false,\"oneWorldDropDownONDListUrl\":\"/content/dam/mh/flight-search/ow-redeem-flight/ow-ond.json\",\"dropDownONDListUrl\":\"\",\"newDropDownONDListUrl\":\"/bin/mh/revamp/ondLists\",\"fireflyDropDownONDListUrl\":\"/bin/firefly/ondLists\",\"amalDropDownONDListUrl\":\"/bin/amal/ondLists\",\"lowFareApiUrl\":\"/bin/mh/revamp/lowFares\",\"ssoRedirectEncryptApiUrl\":\"/bin/mh/revamp/sso/ssoRedirectEncryptURL\",\"backToTop\":false,\"rootCountry\":\"my\",\"rootCountryName\":\"en\",\"environment\":\"production\",\"firebaseMH\":{\"apiKey\":\"AIzaSyDm3avtd1ZLRsA0JntACBY64brfdBEA-nM\",\"authDomain\":\"malaysian-airlines-production.firebaseapp.com\",\"databaseURL\":\"https://malaysian-airlines-production.firebaseio.com\",\"projectId\":\"malaysian-airlines-production\",\"storageBucket\":\"malaysian-airlines-production.appspot.com\",\"messagingSenderId\":\"839381817670\",\"appId\":\"1:839381817670:web:27ea79bd907e106ac4ad47\",\"measurementId\":\"G-FH2B5RQET8\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.prod.js\",\"vapidKey\":\"BK-Ud1sDKGvEepkY5rTdoYHK8GkpgTje4PWcMBUpRGNczoXtaHePGNAOq1ClY7TUmMsGqIeXjM_Cu_XzHgPe5mw\"},\"firebaseFirefly\":{\"apiKey\":\"AIzaSyBWN3eECJDpBQ6j22chaYhe5AW4n_XCbiA\",\"authDomain\":\"firefly-mobile-v2.firebaseapp.com\",\"projectId\":\"firefly-mobile-v2\",\"storageBucket\":\"firefly-mobile-v2.appspot.com\",\"messagingSenderId\":\"840252131678\",\"appId\":\"1:840252131678:web:c3d5c2b0ada95a7b22a7cf\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.firefly.prod.js\",\"vapidKey\":\"BDE-7tCWqU-oDKAQF9f6jHsy2SFfvRFEig9FKy4--gDmWM_TwNQ3wJqGRHUHhdyf0pZbpOPr4tj_J9TE2l1hwvA\"},\"campaign\":{\"tokenEndpointURL\":\"https://malaysiaairlines-mkt-prod4-lb.campaign.adobe.com\",\"trackingEndpointURL\":\"https://malaysiaairlines-mid-prod5-t.adobe-campaign.com\",\"fireflyTrackingURL\":\"https://t5.email.malaysiaairlines.com\",\"integrationKey\":\"3EFA870F-983D-4EB3-A828-C8BEA29AB2D3\",\"integrationKeyFirefly\":\"CBDE156C-7B99-4A65-93CF-DE156B95A87A\"},\"accToken\":\"Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3OTM4OTQ0MDAyMjNfMzlmZDgwMGUtNzVjYy00OGYxLTlkMDktZTE5YjlmNGJmZjcxX3V3MiIsIm9yZyI6IjREOTY3NkE4NTMxNTEyRUQwQTQ5MEQ0NEBBZG9iZU9yZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjNzY1YTZjZjFmYjE0YmMyYjE5ZmU4M2U2ZDY5NWQ3OCIsInVzZXJfaWQiOiIwN0IxMUQ3QTY2MjFFMDc0MEE0OTVGQTJAdGVjaGFjY3QuYWRvYmUuY29tIiwiYXMiOiJpbXMtbmExIiwiYWFfaWQiOiIwN0IxMUQ3QTY2MjFFMDc0MEE0OTVGQTJAdGVjaGFjY3QuYWRvYmUuY29tIiwiY3RwIjozLCJtb2kiOiIxN2IwMTEwNiIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoiYWRvYmVpb19hcGksY2FtcGFpZ25fc2RrLG9wZW5pZCxkZWxpdmVyYWJpbGl0eV9zZXJ2aWNlX2dlbmVyYWwsY2FtcGFpZ25fY29uZmlnX3NlcnZlcl9nZW5lcmFsLHJlYWRfY2xpZW50X3NlY3JldCxBZG9iZUlELGFkZGl0aW9uYWxfaW5mby5yb2xlcyxtYW5hZ2VfY2xpZW50X3NlY3JldHMscmVhZF9vcmdhbml6YXRpb25zLGFkZGl0aW9uYWxfaW5mby5wcm9qZWN0ZWRQcm9kdWN0Q29udGV4dCIsImNyZWF0ZWRfYXQiOiIxNzkzODk0NDAwMjIzIn0.eN7R_NaqlM9wKT_tQ-xtArqjh7atvEUYQXBqHv7LzJ1UROHUr6gJwh8DbHaNrERNEVgDhbxFYkBRC18Rq7ws3Xii3N"
+    },
+    {
+      "url": "https://www.maskargo.com/en/shipment-tracking.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"cssClassNames\":\"content-page page basicpage\",\"brandSlug\":\"\",\"componentsResourceTypes\":[\"mh/components/carousel\",\"mh/components/mh-layout-container\",\"mh/components/mh-breadcrumb\",\"mh/components/maskargo/booking/maskargo-shipment-tracking\",\"mh/components/page\",\"wcm/foundation/components/responsivegrid\",\"nt:unstructured\",\"mh/components/page-properties\",\"mh/components/html-component\",\"mh/components/page-structure/maskargo/content-page\",\"mh/components/banner\",\"mh/components/script-executor\"],\"htmlPageItems\":[],\"lastModifiedDate\":1777252695493,\"title\":\"Shipment Tracking\",\"language\":\"en\",\"templateName\":\"mk-content-page-template\",\":type\":\"mh/components/page-structure/maskargo/content-page\",\":items\":{\"root\":{\"columnClassNames\":{\"page_properties\":\"aem-GridColumn aem-GridColumn--default--12\",\"embedded_carousel\":\"aem-GridColumn aem-GridColumn--default--12\",\"responsivegrid\":\"aem-GridColumn aem-GridColumn--default--12\",\"mh_breadcrumb\":\"aem-GridColumn aem-GridColumn--default--12\"},\"gridClassNames\":\"aem-Grid aem-Grid--12 aem-Grid--default--12\",\"columnCount\":12,\":items\":{\"page_properties\":{\"pageProperties\":{\"excludeFromSearch\":false,\"excludeFromGoogleIndex\":false,\"hideFromSitemap\":false,\"useRTLStyle\":false,\"hideBreadcrumbs\":false,\"hideBreadcrumbsDropdown\":false,\"greyScaleTheme\":false,\"enableSchema\":false,\"enableBookingWidget\":false,\"enableStickyCTA\":false,\"turnOffLoadingWindow\":false,\"excludeFromCountryLanguageSelector\":false,\"siteName\":\"maskargo\",\"oneWorldDropDownONDListUrl\":\"/content/dam/mh/flight-search/ow-redeem-flight/ow-ond.json\",\"dropDownONDListUrl\":\"\",\"newDropDownONDListUrl\":\"/bin/mh/revamp/ondLists\",\"fireflyDropDownONDListUrl\":\"/bin/firefly/ondLists\",\"amalDropDownONDListUrl\":\"/bin/amal/ondLists\",\"lowFareApiUrl\":\"/bin/mh/revamp/lowFares\",\"ssoRedirectEncryptApiUrl\":\"/bin/mh/revamp/sso/ssoRedirectEncryptURL\",\"pageTypeAA\":\"homepage\",\"backToTop\":false,\"rootLanguage\":\"en\",\"rootCountry\":\"my\",\"rootCountryName\":\"MASkargo\",\"rootLanguageName\":\"en\",\"hierarchy\":[{\"pageTitle\":\"Home\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/home.html\"},{\"pageTitle\":\"Shipment Tracking\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/shipment-tracking.html\",\"siblings\":[{\"pageTitle\":\"Content Page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/content-page.html\"},{\"pageTitle\":\"Error Pages\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/error-pages.html\"},{\"pageTitle\":\"Article Page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/article-page.html\"},{\"pageTitle\":\"Booking inquiry Iframe page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/booking-inquiry-iframe-page.html\"},{\"pageTitle\":\"Flight schedule Iframe page\",\"pageUrl\":\"https://www.maskargo.com/content/mk/en/flight-schedule-iframe-page.html\"}]}],\"environment\":\"production\",\"firebaseMH\":{\"apiKey\":\"AIzaSyDm3avtd1ZLRsA0JntACBY64brfdBEA-nM\",\"authDomain\":\"malaysian-airlines-production.firebaseapp.com\",\"databaseURL\":\"https://malaysian-airlines-production.firebaseio.com\",\"projectId\":\"malaysian-airlines-production\",\"storageBucket\":\"malaysian-airlines-production.appspot.com\",\"messagingSenderId\":\"839381817670\",\"appId\":\"1:839381817670:web:27ea79bd907e106ac4ad47\",\"measurementId\":\"G-FH2B5RQET8\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.prod.js\",\"vapidKey\":\"BK-Ud1sDKGvEepkY5rTdoYHK8GkpgTje4PWcMBUpRGNczoXtaHePGNAOq1ClY7TUmMsGqIeXjM_Cu_XzHgPe5mw\"},\"firebaseFirefly\":{\"apiKey\":\"AIzaSyBWN3eECJDpBQ6j22chaYhe5AW4n_XCbiA\",\"authDomain\":\"firefly-mobile-v2.firebaseapp.com\",\"projectId\":\"firefly-mobile-v2\",\"storageBucket\":\"firefly-mobile-v2.appspot.com\",\"messagingSenderId\":\"840252131678\",\"appId\":\"1:840252131678:web:c3d5c2b0ada95a7b22a7cf\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.firefly.prod.js\",\"vapidKey\":\"BDE-7tCWqU-oDKAQF9f6jHsy2SFfvRFEig9FKy4--gDmWM_TwNQ3wJqGRHUHhdyf0pZbpOPr4tj_J9TE2l1hwvA\"},\"campaign\":{\"tokenEndpointURL\":\"https://malaysiaairlines-mkt-prod4-lb.campaign.adobe.com\",\"trackingEndpointURL\":"
+    },
+    {
+      "url": "https://www.maskargo.com/content/experience-fragments/maskargo/en/site/header-notification/master/jcr:content/root/responsivegrid.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"columnClassNames\":{\"header_notification\":\"aem-GridColumn aem-GridColumn--default--12\"},\"gridClassNames\":\"aem-Grid aem-Grid--12 aem-Grid--default--12\",\"columnCount\":12,\":items\":{\"header_notification\":{\"autoRotationTimer\":3,\"referencePath\":\"/content/mk/en/home/about-us/media-centre/news-releases/2026\",\"referencePageTitle\":\"2026\",\"children\":[{\"pageUrl\":\"/content/mk/en/home/about-us/media-centre/news-releases/2026/fuel-surcharge--myc--update-for-16---31-august-2026\",\"pageTitle\":\"Fuel Surcharge (MYC) Update for 16 – 31 August 2026\"},{\"pageUrl\":\"/content/mk/en/home/about-us/media-centre/news-releases/2026/maskargo-freighter-cancellation-statement\",\"pageTitle\":\"MASkargo Freighter Cancellation Statement\"},{\"pageUrl\":\"/content/mk/en/home/about-us/media-centre/news-releases/2026/update--continued-suspension-of-maskargo-freighter-flights-to-do\",\"pageTitle\":\"Update: Continued Suspension of MASkargo Freighter Flights to DOH and AMS\"},{\"pageUrl\":\"/content/mk/en/home/about-us/media-centre/news-releases/2026/temporary-suspension-of-scheduled-kul-doh-eu-cargo-operations\",\"pageTitle\":\"Temporary Suspension of Scheduled KUL–DOH–EU Cargo Operations\"},{\"pageUrl\":\"/content/mk/en/home/about-us/media-centre/news-releases/2026/implementation-of-fuel-surcharge--fsc--effective-12-march-2026\",\"pageTitle\":\"EXTENSION OF FUEL SURCHARGE (FSC) IMPLEMENTATION UNTIL 31 MARCH 2026\"}],\"isHideInDesktop\":false,\"isHideInMobile\":false,\":type\":\"mh/components/header-notification\"}},\":itemsOrder\":[\"header_notification\"],\":type\":\"wcm/foundation/components/responsivegrid\"}"
+    },
+    {
+      "url": "https://www.maskargo.com/content/experience-fragments/maskargo/en/site/header/master/jcr:content/root/responsivegrid.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"columnClassNames\":{\"page_properties\":\"aem-GridColumn aem-GridColumn--default--12\",\"script_executor_1142712687\":\"aem-GridColumn aem-GridColumn--default--12\",\"script_executor_347396094\":\"aem-GridColumn aem-GridColumn--default--12\",\"script_executor\":\"aem-GridColumn aem-GridColumn--default--12\",\"header_1682978946\":\"aem-GridColumn aem-GridColumn--default--12\"},\"gridClassNames\":\"aem-Grid aem-Grid--12 aem-Grid--default--12\",\"columnCount\":12,\":items\":{\"page_properties\":{\"pageProperties\":{\"excludeFromSearch\":false,\"excludeFromGoogleIndex\":false,\"hideFromSitemap\":false,\"useRTLStyle\":false,\"hideBreadcrumbs\":false,\"hideBreadcrumbsDropdown\":false,\"greyScaleTheme\":false,\"enableSchema\":false,\"enableBookingWidget\":false,\"enableStickyCTA\":false,\"turnOffLoadingWindow\":false,\"excludeFromCountryLanguageSelector\":false,\"baseCurrency\":\"USD\",\"oneWorldDropDownONDListUrl\":\"/content/dam/mh/flight-search/ow-redeem-flight/ow-ond.json\",\"dropDownONDListUrl\":\"\",\"newDropDownONDListUrl\":\"/bin/mh/revamp/ondLists\",\"fireflyDropDownONDListUrl\":\"/bin/firefly/ondLists\",\"amalDropDownONDListUrl\":\"/bin/amal/ondLists\",\"lowFareApiUrl\":\"/bin/mh/revamp/lowFares\",\"ssoRedirectEncryptApiUrl\":\"/bin/mh/revamp/sso/ssoRedirectEncryptURL\",\"pageTypeAA\":\"homepage\",\"backToTop\":false,\"rootCountry\":\"my\",\"environment\":\"production\",\"firebaseMH\":{\"apiKey\":\"AIzaSyDm3avtd1ZLRsA0JntACBY64brfdBEA-nM\",\"authDomain\":\"malaysian-airlines-production.firebaseapp.com\",\"databaseURL\":\"https://malaysian-airlines-production.firebaseio.com\",\"projectId\":\"malaysian-airlines-production\",\"storageBucket\":\"malaysian-airlines-production.appspot.com\",\"messagingSenderId\":\"839381817670\",\"appId\":\"1:839381817670:web:27ea79bd907e106ac4ad47\",\"measurementId\":\"G-FH2B5RQET8\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.prod.js\",\"vapidKey\":\"BK-Ud1sDKGvEepkY5rTdoYHK8GkpgTje4PWcMBUpRGNczoXtaHePGNAOq1ClY7TUmMsGqIeXjM_Cu_XzHgPe5mw\"},\"firebaseFirefly\":{\"apiKey\":\"AIzaSyBWN3eECJDpBQ6j22chaYhe5AW4n_XCbiA\",\"authDomain\":\"firefly-mobile-v2.firebaseapp.com\",\"projectId\":\"firefly-mobile-v2\",\"storageBucket\":\"firefly-mobile-v2.appspot.com\",\"messagingSenderId\":\"840252131678\",\"appId\":\"1:840252131678:web:c3d5c2b0ada95a7b22a7cf\",\"swFilePath\":\"/etc.clientlibs/mh/clientlibs/clientlib-dependencies/resources/firebase-messaging-sw.firefly.prod.js\",\"vapidKey\":\"BDE-7tCWqU-oDKAQF9f6jHsy2SFfvRFEig9FKy4--gDmWM_TwNQ3wJqGRHUHhdyf0pZbpOPr4tj_J9TE2l1hwvA\"},\"campaign\":{\"tokenEndpointURL\":\"https://malaysiaairlines-mkt-prod4-lb.campaign.adobe.com\",\"trackingEndpointURL\":\"https://malaysiaairlines-mid-prod5-t.adobe-campaign.com\",\"fireflyTrackingURL\":\"https://t5.email.malaysiaairlines.com\",\"integrationKey\":\"3EFA870F-983D-4EB3-A828-C8BEA29AB2D3\",\"integrationKeyFirefly\":\"CBDE156C-7B99-4A65-93CF-DE156B95A87A\"},\"accToken\":\"Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3OTQzMjY0MDAyNzBfZDViNDNlMjAtNGMxNS00NTFmLWE0ZjItNmMwNzM0MGNiMWNhX3V3MiIsIm9yZyI6IjREOTY3NkE4NTMxNTEyRUQwQTQ5MEQ0NEBBZG9iZU9yZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJjNzY1YTZjZjFmYjE0YmMyYjE5ZmU4M2U2ZDY5NWQ3OCIsInVzZXJfaWQiOiIwN0IxMUQ3QTY2MjFFMDc0MEE0OTVGQTJAdGVjaGFjY3QuYWRvYmUuY29tIiwiYXMiOiJpbXMtbmExIiwiYWFfaWQiOiIwN0IxMUQ3QTY2MjFFMDc0MEE0OTVGQTJAdGVjaGFjY3QuYWRvYmUuY29tIiwiY3RwIjozLCJtb2kiOiI0ZGQ2ZTkyYiIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoiYWRvYmVpb19hcGksY2FtcGFpZ25fc2RrLG9wZW5pZCxkZWxpdmVyYWJpbGl0eV9zZXJ2aWNlX2dlbmVyYWwsY2FtcGFpZ25fY29uZmlnX3NlcnZlcl9nZW5lcmFsLHJlYWRfY2xpZW50X3NlY3JldCxBZG9iZUlELGFkZGl0aW9uYWxfaW5mby5yb2xlcyxtYW5hZ2VfY2xpZW50X3NlY3JldHMscmVhZF9vcmdhbml6YXRpb25zLGFkZGl0aW9uYWxfaW5mby5wcm9qZWN0ZWRQcm9kdWN0Q29udGV4dCIsImNyZWF0ZWRfYXQiOiIxNzk0MzI2NDAwMjcwIn0.P5-zw773uEMXVo9TpmL0pvdfHe834d3jp36OHBjVwcBkKC_rfaw8eF0gv3Ec_p5jyLKdyBWvUcnzqhw31WSPjPU-BWJW-tfvtYJEUnJfaK_p-gvkGs7hIDipHg-Oa0HdjOBfohDe3qWVOxxIMr0seQUt8I7DgQ-jWRPJo0ND_nN3UA47sqMQlj8SoQM5Yy4UcbkKY0qZiuaJ3San_u7ulHTk3szG79P1QtR6Hj1qYQS-qeci0joaxDI3ht9p1DH0q1wqff_fsffJcG9senA5as-I"
+    },
+    {
+      "url": "https://www.maskargo.com/content/experience-fragments/maskargo/en/site/footer/master/jcr:content/root/responsivegrid.model.json",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"columnClassNames\":{\"footer\":\"aem-GridColumn aem-GridColumn--default--12\"},\"gridClassNames\":\"aem-Grid aem-Grid--12 aem-Grid--default--12\",\"columnCount\":12,\":items\":{\"footer\":{\"generalTab\":{\"isHideInDesktop\":false,\"isHideInMobile\":false,\"isCurvedCorners\":false,\"navigationMenu\":[{\"titlePagePath\":\"/content/mk/en/products-and-services/products\",\"titleLabel\":\"Products\",\"isOpenNewTab\":false,\"isHideInHamburgerMenu\":false,\"isExternalLink\":false,\"navigationMenuLevel2\":[{\"titlePagePath\":\"/content/mk/en/products-and-services/products/mk-general\",\"titleLabel\":\"MK General\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/products-and-services/products/mk-pharma\",\"titleLabel\":\"MK Pharma\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/products-and-services/products/mk-fresh\",\"titleLabel\":\"MK Fresh\",\"isOpenNewTab\":false,\"isExternalLink\":false}],\"isHasMore\":true},{\"titlePagePath\":\"/content/mk/en/products-and-services/services\",\"titleLabel\":\"Services\",\"isOpenNewTab\":false,\"isHideInHamburgerMenu\":false,\"isExternalLink\":false,\"navigationMenuLevel2\":[{\"titlePagePath\":\"/content/mk/en/products-and-services/services/mk-transit\",\"titleLabel\":\"MK Transit\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/products-and-services/services/mk-charter\",\"titleLabel\":\"MK Charter\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/products-and-services/services/mk-halal\",\"titleLabel\":\"MK Halal\",\"isOpenNewTab\":false,\"isExternalLink\":false}],\"isHasMore\":true},{\"titlePagePath\":\"/content/mk/en/home/about-us\",\"titleLabel\":\"About Us\",\"isOpenNewTab\":false,\"isHideInHamburgerMenu\":false,\"isExternalLink\":false,\"navigationMenuLevel2\":[{\"titlePagePath\":\"/content/mk/en/home/about-us/our-story\",\"titleLabel\":\"Our Story\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/home/about-us/award-and-achievements\",\"titleLabel\":\"Award & Achievements\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/home/about-us/sustainability\",\"titleLabel\":\"Sustainability\",\"isOpenNewTab\":false,\"isExternalLink\":false},{\"titlePagePath\":\"/content/mk/en/home/about-us/loyalty\",\"titleLabel\":\"Loyalty\",\"isOpenNewTab\":false,\"isExternalLink\":false}],\"isHasMore\":true},{\"titlePagePath\":\"/content/mk/en/home/about-us/media-centre\",\"titleLabel\":\"Media Centre\",\"isOpenNewTab\":false,\"isHideInHamburgerMenu\":false,\"isExternalLink\":false,\"navigationMenuLevel2\":[],\"isHasMore\":false},{\"titlePagePath\":\"/content/mk/en/home/support\",\"titleLabel\":\"Support\",\"isOpenNewTab\":false,\"isHideInHamburgerMenu\":false,\"isExternalLink\":false,\"navigationMenuLevel2\":[],\"isHasMore\":false}],\"quickLinkMenu\":[]},\"subsidiaryTab\":{\"subsidiaryList\":[{\"image\":\"/content/dam/maskargo-revamp/my/en/footer/MAB_logo.png\",\"imageAltText\":\"Malaysia Airlines\",\"imageUrl\":\"https://www.malaysiaairlines.com/my/en/home.html\",\"isOpenNewTab\":true,\"isHideInDesktop\":false,\"isHideInMobile\":false},{\"image\":\"/content/dam/maskargo-revamp/my/en/footer/Firefly.png\",\"imageAltText\":\"Firefly\",\"imageUrl\":\"https://www.fireflyz.com.my/\",\"isOpenNewTab\":true,\"isHideInDesktop\":false,\"isHideInMobile\":false},{\"image\":\"/content/dam/maskargo-revamp/my/en/footer/amal.png\",\"imageAltText\":\"amal\",\"imageUrl\":\"https://iflyamal.com/my/en/home.html\",\"isOpenNewTab\":true,\"isHideInDesktop\":false,\"isHideInMobile\":false},{\"image\":\"/content/dam/maskargo-revamp/my/en/footer/enrich.png\",\"imageAltText\":\"Enrich\",\"imageUrl\":\"https://enrich.malaysiaairlines.com/enrich.html\",\"isOpenNewTab\":true,\"isHideInDesktop\":false,\"isHideInMobile\":false},{\"image\":\"/content/dam/maskargo-revamp/my/en/footer/journify.png\",\"imageAltText\":\"Journify\",\"imageUrl\":\"https://myjournify.com/\",\"isOpenNewTab\":true,\"isHideInDesktop\":false,\"isHideInMobile\":false},{\"image\":\"/content/dam/maskargo-revamp/my/en/footer/MASkargo-160x80-white.png\",\"imageAltText\":\"maskargo\",\"imageUrl\":\"https://www.maskargo.com/\",\"isOpenNewTab\":true,\"isHideInDesktop\":false,\"isHideInMobile\":f"
+    },
+    {
+      "url": "https://www.maskargo.com/bin/mh/revamp/maskargo/shipment/tracking?awbShipmentTrackingNumber=23216749482",
+      "status": 500,
+      "ct": "application/json",
+      "body": "{\"status\":\"Something went wrong\"}"
+    },
+    {
+      "url": "https://adobedc.demdex.net/ee/v1/identity/acquire?configId=622290d4-f386-49f7-b475-78e2f8074e5f&requestId=33fafccd-e145-4559-a337-19d4e15cd9e5",
+      "status": 200,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"requestId\":\"33fafccd-e145-4559-a337-19d4e15cd9e5-5c8d231632934575\",\"handle\":[{\"payload\":[{\"id\":\"56608900498990237890482596393112242681\",\"namespace\":{\"code\":\"ECID\"}},{\"id\":\"48403489621035212940797520732447650906\",\"namespace\":{\"code\":\"CORE\"}}],\"type\":\"identity:result\"},{\"payload\":[{\"scope\":\"Target\",\"hint\":\"35\",\"ttlSeconds\":1800},{\"scope\":\"AAM\",\"hint\":\"9\",\"ttlSeconds\":1800},{\"scope\":\"EdgeNetwork\",\"hint\":\"or2\",\"ttlSeconds\":1800}],\"type\":\"locationHint:result\"},{\"payload\":[{\"key\":\"kndctr_4D9676A8531512ED0A490D44_AdobeOrg_identity\",\"value\":\"CiY1NjYwODkwMDQ5ODk5MDIzNzg5MDQ4MjU5NjM5MzExMjI0MjY4MVISCKTloNKcNBABGAEqA09SMjAA8AGk5aDSnDQ=\",\"maxAge\":34128000,\"attrs\":{\"SameSite\":\"None\"}},{\"key\":\"kndctr_4D9676A8531512ED0A490D44_AdobeOrg_cluster\",\"value\":\"or2\",\"maxAge\":1800,\"attrs\":{\"SameSite\":\"None\"}}],\"type\":\"state:store\"}]}"
+    },
+    {
+      "url": "https://bam.nr-data.net/1/NRJS-691c1f6a87ac2447f9a?a=1589112896&sa=1&v=1.293.0&t=Unnamed%20Transaction&rst=4306&ck=0&s=a6507ed0a6be7143&ref=https://www.maskargo.com/en/shipment-tracking.html&ptid=f129542e82318c31&af=err,spa,xhr,stn,ins&be=564&fe=2087&dc=2087&fsh=1&perf=%7B%22timing%22:%7B%22of%22:1794395085925,%22n%22:0,%22f%22:1,%22dn%22:1,%22dne%22:1,%22c%22:9,%22s%22:9,%22ce%22:288,%22rq%22:289",
+      "status": 200,
+      "ct": "application/json",
+      "body": "{\"stn\":0,\"err\":1,\"ins\":1,\"spa\":1,\"sr\":1,\"srs\":2,\"st\":1,\"sts\":2,\"log\":2,\"logapi\":2,\"app\":{\"agents\":[{\"entityGuid\":\"NjYzMjM1MHxCUk9XU0VSfEFQUExJQ0FUSU9OfDE1ODkxMTI4OTY\"}],\"nrServerTime\":1794395091958}}"
+    },
+    {
+      "url": "https://edge.adobedc.net/ee/or2/v1/interact?configId=622290d4-f386-49f7-b475-78e2f8074e5f&requestId=3b642153-0756-4bd0-b84f-175f406f8588",
+      "status": 207,
+      "ct": "application/json;charset=utf-8",
+      "body": "{\"requestId\":\"3b642153-0756-4bd0-b84f-175f406f8588-7c223696e2ef49e8\",\"handle\":[{\"payload\":[{\"id\":\"56608900498990237890482596393112242681\",\"namespace\":{\"code\":\"ECID\"}}],\"type\":\"identity:result\"},{\"payload\":[{\"scope\":\"Target\",\"hint\":\"35\",\"ttlSeconds\":1800},{\"scope\":\"AAM\",\"hint\":\"9\",\"ttlSeconds\":1800},{\"scope\":\"EdgeNetwork\",\"hint\":\"or2\",\"ttlSeconds\":1800}],\"type\":\"locationHint:result\"},{\"payload\":[{\"key\":\"kndctr_4D9676A8531512ED0A490D44_AdobeOrg_cluster\",\"value\":\"or2\",\"maxAge\":1800,\"attrs\":{\"SameSite\":\"None\"}}],\"type\":\"state:store\"}],\"errors\":[{\"type\":\"https://ns.adobe.com/aep/errors/TGT-12201-403\",\"status\":403,\"title\":\"Unauthorized Mbox host\",\"detail\":\"Mbox token is invalid: Unauthorized mbox host - www.maskargo.com for client malaysiaairlines\",\"report\":{\"eventIndex\":0,\"request-id\":\"3b642153-0756-4bd0-b84f-175f406f8588-7c223696e2ef49e8\"}}]}"
+    }
+  ]
+}

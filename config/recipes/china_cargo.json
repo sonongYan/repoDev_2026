@@ -1,0 +1,79 @@
+{
+  "carrier": "china_cargo",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "东航物流 eal-ceair.com 官网直连（IATA 112），图片验证码 + XHR 结果判定",
+  "entry": {
+    "url": "https://www.eal-ceair.com/cargo-tracking.html",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 2000
+  },
+  "urlTemplates": [
+    "https://www.eal-ceair.com/cargo-tracking.html?waybillNum={number}"
+  ],
+  "valueFormats": {
+    "number": "awbDash"
+  },
+  "steps": [
+    {
+      "action": "captcha",
+      "saveAs": "captcha",
+      "kind": "image",
+      "recognizer": "ddddocr",
+      "length": 6
+    },
+    {
+      "action": "setValue",
+      "valueFrom": "captcha",
+      "dispatch": ["input", "change"],
+      "locator": {
+        "placeholder": "验证码",
+        "css": ["#code-verify", "input[placeholder*='验证码']"]
+      }
+    },
+    {
+      "action": "invoke",
+      "global": "WaybillQueryData",
+      "fallback": {
+        "css": ["div.waybill-button", "button:has-text('查询')"]
+      }
+    }
+  ],
+  "captcha": {
+    "image": {
+      "css": ["#img-verify", "img[alt='验证码图片']", "img[src*='verifyCode' i]"]
+    },
+    "refresh": {
+      "mode": "reload",
+      "settleMs": 2500
+    },
+    "maxAttempts": 5
+  },
+  "result": {
+    "mode": "xhr",
+    "xhr": {
+      "urlPattern": "/eos/awb/",
+      "method": "GET",
+      "successWhen": [
+        { "path": "result", "equals": "SUCCESS" }
+      ],
+      "errorMessagePath": "msg",
+      "dataPath": "data"
+    },
+    "domFallback": {
+      "successKeywords": ["货物操作状态", "承运航班信息"],
+      "noDataKeywords": ["暂无信息"]
+    },
+    "wait": {
+      "timeoutMs": 15000,
+      "intervalMs": 1500
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "运单号由 URL 预填，步骤中禁止再填（任何 input 事件都会刷新验证码导致失效）；提交需调用页面全局函数 WaybillQueryData"
+  }
+}

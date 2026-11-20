@@ -1,0 +1,62 @@
+{
+  "carrier": "turkish",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "Turkish Cargo 官网直连（235 前缀，URL 参数自动搜索，含按住式人机验证）",
+  "entry": {
+    "url": "https://turkishcargo.com/en/cargo-tracking?awbPrefix={prefix}&awbNumber={number}",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 1000
+  },
+  "reportUrlTemplate": "https://turkishcargo.com/en/cargo-tracking?awbPrefix={prefix}&awbNumber={number}",
+  "valueFormats": {
+    "number": "awbNumber",
+    "prefix": "awbPrefix",
+    "numberDash": "awbDash"
+  },
+  "popups": [
+    {
+      "css": [
+        "button:has-text('Accept all')",
+        "button:has-text('Accept')",
+        "button:has-text('OK')",
+        "#cookie-banner button"
+      ],
+      "waitAfter": 800
+    }
+  ],
+  "steps": [],
+  "result": {
+    "mode": "dom",
+    "domFallback": {
+      "match": "some",
+      "successKeywords": [
+        "Cargo Reservation Information",
+        "Last Acceptance",
+        "Flight No"
+      ],
+      "noDataKeywords": [
+        "no data",
+        "no result",
+        "no shipment",
+        "no record",
+        "not found",
+        "invalid",
+        "未找到",
+        "无结果",
+        "查无"
+      ]
+    },
+    "wait": {
+      "timeoutMs": 60000,
+      "intervalMs": 2000
+    }
+  },
+  "meta": {
+    "createdAt": "2026-11-11",
+    "lastVerified": null,
+    "notes": "URL 参数 awbPrefix=前3位、awbNumber=后8位，SPA 自动搜索。可能出现「按住验证」滑块，由适配器调用 handleCaptchaIfNeeded 处理；数据抽取用 evaluate+DOM，避免 innerText 空字段错位"
+  }
+}

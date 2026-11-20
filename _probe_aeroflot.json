@@ -1,0 +1,95 @@
+{
+  "title": "Авиаперевозки грузов, грузовые перевозки | Аэрофлот",
+  "url": "https://www.aeroflot.ru/products/cargo/",
+  "bodyText": "Пожалуйста, подождите",
+  "inputs": [],
+  "buttons": [
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "ant-btn css-maaxkt ant-btn-uncontained ant-btn-lg ant-btn-icon-only sc-hjsuWn gNAqFy",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "ant-btn css-maaxkt ant-btn-secondary ant-btn-sm sc-hjsuWn imJlLC",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "ant-btn css-maaxkt ant-btn-default ant-btn-sm sc-hjsuWn bxFlxB",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "placeholder": null,
+      "cls": "",
+      "text": ""
+    }
+  ],
+  "iframes": [],
+  "xhrs": [
+    {
+      "url": "https://www.aeroflot.ru/ngenix-aGVsbG8sIGh1bWFu/bot-challenge/challenge",
+      "status": 200,
+      "ct": "application/json",
+      "body": "{\"tests\":[{\"args\":{\"block_ldm\":true},\"bundle\":\"ygod_ku8r1qq2j4jvhoryrigh5zm27zg463_9ejdyy4dqt55owwktzfiy7xgazht3ear3.mjs\"},{\"args\":{},\"bundle\":\"tc36idueb84_jrguvgusiz554qoft6qza7dbipxc9nin6zz7krhqqk7f3cds2gsvra2ccind9mx3izbdg9rkt7yud1myzs.mjs\"},{\"args\":{\"tesseract\":\"tesseract\",\"payload\":\"<div style=\\\"forced-color-adjust: none !important;background-color: white !important;width: 10px;height: 150px;position: relative;margin-top: 50px\\\"><div style=\\\"position: absolute;height: 25px;background-color: black !important;left: 19px;width: 7px;top: 9px\\\"><\\/div><div style=\\\"width: 7px;top: 33px;left: 582px;position: absolute;background-color: black !important;height: 2px\\\"><\\/div><div style=\\\"left: 521px;position: absolute;top: 39px;background-color: black !important;height: 2px;width: 7px\\\"><\\/div><div style=\\\"width: 5px;left: 652px;background-color: black !important;top: 28px;position: absolute;height: 8px\\\"><\\/div><div style=\\\"left: 521px;background-color: black !important;height: 5px;width: 7px;position: absolute;top: 13px\\\"><\\/div><div style=\\\"left: 507px;height: 1px;background-color: black !important;position: absolute;width: 8px;top: 20px\\\"><\\/div><div style=\\\"position: absolute;height: 7px;width: 9px;top: 30px;background-color: black !important;left: 499px\\\"><\\/div><div style=\\\"height: 3px;top: 33px;width: 3px;position: absolute;background-color: black !important;left: 208px\\\"><\\/div><div style=\\\"position: absolute;top: 19px;height: 6px;background-color: black !important;left: 359px;width: 17px\\\"><\\/div><div style=\\\"top: 2px;left: 277px;width: 4px;height: 9px;background-color: black !important;position: absolute\\\"><\\/div><div style=\\\"top: 32px;width: 11px;left: 118px;height: 6px;background-color: black !important;position: absolute\\\"><\\/div><div style=\\\"width: 16px;background-color: black !important;top: 12px;height: 4px;left: 269px;position: absolute\\\"><\\/div><div style=\\\"width: 14px;position: absolute;background-color: black !important;top: 35px;height: 5px;left: 415px\\\"><\\/div><div style=\\\"width: 1px;left: 572px;background-color: black !important;height: 3px;position: absolute;top: 31px\\\"><\\/div><div style=\\\"width: 6px;height: 3px;top: 4px;left: 350px;background-color: black !important;position: absolute\\\"><\\/div><div style=\\\"position: absolute;top: 41px;left: 345px;background-color: black !important;width: 24px;height: 4px\\\"><\\/div><div style=\\\"background-color: black !important;left: 48px;top: 25px;height: 15px;width: 8px;position: absolute\\\"><\\/div><div style=\\\"position: absolute;left: 280px;top: -6px;height: 6px;background-color: black !important;width: 5px\\\"><\\/div><div style=\\\"background-color: black !important;width: 8px;height: 6px;left: 121px;position: absolute;top: 22px\\\"><\\/div><div style=\\\"top: 47px;background-color: black !important;position: absolute;height: 3px;width: 2px;left: 197px\\\"><\\/div><div style=\\\"left: 180px;position: absolute;width: 9px;height: 3px;background-color: black !important;top: 7px\\\"><\\/div><div style=\\\"left: 415px;background-color: black !important;top: 10px;height: 26px;position: absolute;width: 2px\\\"><\\/div><div style=\\\"background-color: black !important;height: 5px;width: 20px;left: 582px;position: absolute;top: -1px\\\"><\\/div><div style=\\\"top: 42px;width: 5px;height: 4px;background-color: black !important;position: absolute;left: 199px\\\"><\\/div><div style=\\\"position: absolute;width: 5px;height: 8px;background-color: black !important;top: 45px;left: 199px\\\"><\\/div><div style=\\\"left: 523px;top: 0px;position: absolute;height: 7px;width: 5px;background-color: black !important\\\"><\\/div><div style=\\\"background-color: black !important;left: 118px;height: 6px;width: 1px;top: 30px;position: absolute\\\"><\\/div><div style=\\\"left: 497px;background-color: black !important;top: 30px;position: absolute;height: 5px;width: 3px\\\"><\\/div><div style=\\\"left: 345px;width: 15px;height: 6px;position: absolute;top: 14px;background-color: black !important\\\"><\\/div><div style=\\\"position: absolute;height: 4px;backgr"
+    },
+    {
+      "url": "https://www.aeroflot.ru/ngenix-aGVsbG8sIGh1bWFu/bot-challenge/challenge",
+      "status": 205,
+      "ct": "application/json",
+      "body": ""
+    }
+  ]
+}

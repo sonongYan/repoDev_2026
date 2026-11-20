@@ -1,0 +1,11 @@
+{
+  "carrier": "china_cargo",
+  "queryType": "awb",
+  "samples": [
+    {
+      "number": "112-00966066",
+      "expect": "hasResult",
+      "note": "已知可查运单；站点限流时可能返回失败，不代表配方失效"
+    }
+  ]
+}

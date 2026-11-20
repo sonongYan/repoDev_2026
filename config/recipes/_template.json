@@ -1,0 +1,56 @@
+{
+  "carrier": "TODO_carrier_id",
+  "version": 1,
+  "queryType": "awb",
+  "queryKey": "number",
+  "description": "复制本文件为 config/recipes/{carrier}.json 后填写 entry / urlTemplates / steps / result 四项",
+  "entry": {
+    "url": "https://example.com/tracking",
+    "waitUntil": "domcontentloaded",
+    "timeoutMs": 60000,
+    "settleMs": 1500
+  },
+  "urlTemplates": [],
+  "valueFormats": {
+    "number": "compact"
+  },
+  "steps": [
+    {
+      "action": "fill",
+      "valueFrom": "number",
+      "locator": {
+        "role": { "type": "textbox", "name": "运单号" },
+        "placeholder": "请输入",
+        "css": []
+      }
+    },
+    {
+      "action": "click",
+      "locator": {
+        "role": { "type": "button", "name": "查询" },
+        "css": []
+      }
+    }
+  ],
+  "result": {
+    "mode": "dom",
+    "xhr": {
+      "urlPattern": "/api/track",
+      "successWhen": [{ "path": "result", "equals": "SUCCESS" }],
+      "dataPath": "data"
+    },
+    "domFallback": {
+      "successKeywords": ["轨迹", "状态"],
+      "noDataKeywords": ["暂无信息", "无数据", "not found"]
+    },
+    "wait": {
+      "timeoutMs": 15000,
+      "intervalMs": 1500
+    }
+  },
+  "meta": {
+    "createdAt": null,
+    "lastVerified": null,
+    "notes": ""
+  }
+}

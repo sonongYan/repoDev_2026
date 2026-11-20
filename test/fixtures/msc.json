@@ -1,0 +1,11 @@
+{
+  "carrier": "msc",
+  "queryType": "container",
+  "samples": [
+    {
+      "number": "MSMU1566982",
+      "expect": "hasResult",
+      "note": "历史样本：曾返回 8 条轨迹事件"
+    }
+  ]
+}
